@@ -21,8 +21,8 @@ editor for crop objects
   year={2008}
 }
 
-@article{tausigmaiotaalphakappamuacutealphakappaeta2012onutauolambdaogammaacuteiotavarepsilonvarsigma,
-  title={Οντολογίες και λογική παραγωγή με εφαρμογές σε υπηρεσίες μάθησης στο σημασιολογικό ιστό},
-  author={Τσιακμάκη, Μαρία and Χαρτώνας, Χρυσαφης},
-  year={2012}
+@article{tsiakmaki2011,
+  title={Προσαρμοστικότητα ως Αναδυόμενη Ιδιότητα Σύνθεσης Υπηρεσιών Μάθησης στο Σημασιολογικό Ιστό},
+  author={Τσιακμάκη, Μαρία and Γκανα, Ελένη and Χαρτώνας, Χρυσαφης},
+  year={2011}
 }
