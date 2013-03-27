@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Role "http://www.cs.teilar.gr/ontologies/Role.owl#" >
+    <!ENTITY Process "http://www.cs.teilar.gr/ontologies/Process.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY swrla "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl"
+     xmlns:Process="http://www.cs.teilar.gr/ontologies/Process.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:Role="http://www.cs.teilar.gr/ontologies/Role.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">In the LEarning Domain Role ontology we extend the Role ontology of the Role Modeling with Roles that are found in a Learning Domain.</rdfs:comment>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">This is the Upper Role Model Ontology for Learning Domains. To get specific role models the user needs to 
+(a) subclass the Role class to get specific role types, e.g. Buyer, Seller, Shipper etc
+(b) determine the peer relationship between roles
+(c) determine the Concepts specific to the intended role model, e.g. &quot;Publisher&quot;, &quot;PublicationYear&quot;, &quot;NumberOfPages&quot; etc (subclassing &quot;RoleConcepts&quot;)
+(d1) determine the kinds of messages that can be exchanged, using instances of the MessageName class (specific to the intended Role Model) as names of messages
+(d2) determine also the parameters of the types of messages that can be exchanged 
+(e) Determine the InteractionProcesses, Exchanges and Interactions, specific to the Role
+(f) Determine pre-conditions/effects and inputs/outputs for Interaction Processes</rdfs:comment>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/Process.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#hasPeer -->
+
+    <owl:ObjectProperty rdf:about="&Role;hasPeer"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#AuthorRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#AuthorRole">
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#FacilitatorRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The Author Role is the one that manually constructs Learning Objects. 
+
+
+According to CROP, it constructs the Learning Object&#39; s 
+(a) the Content Ontology (extracts it from the Domain with or withour enhancements), 
+(b) the Concept Graph (extracts it from the Domain with or withour enhancements), 
+(c) the Knowledge Requirements Chart (KRC, the Concept Graph whose nodes are populated with a set of Kobjects), 
+(d) creates the actual educational material, 
+(e) populates its IEEE LOM,  
+(f) creates the XGraph (adds XDialogues, XControls and XLearning Nodes to the KRC)
+(g) defines one or more eXecution Models (the sequencing rules for traversing the XGraph). 
+
+The Author Role constructs Learning Objects either after taking an initiative by their own, or after agreeing with a service to perform as such.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#FacilitatorRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#FacilitatorRole">
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#AuthorRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectRequestorRole"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Facilitator intermediates in some of the Learner - Learning Provider interactions. 
+E.g. when a Learner searches fro a learning object, Facilitator broadcasts the request to every relevant (or registered) Learning Provider in the Learning Domain</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerProfileManagerRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerProfileManagerRole">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManagerRole"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Manages the Learner&#39;s profile (learning model).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerRole">
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerProfileManagerRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#MonitoringRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The Learner Role pursue educational concepts. For that purpose it executes Learning Object Processes. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectProfileManagerRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectProfileManagerRole">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManagerRole"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#AuthorRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Manages the learning object profile (ieee lom).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectRequestorRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectRequestorRole">
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#FacilitatorRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The Requestor submits a request for Learning Objects. 
+The request contains characteristics (e.g. the target concept, the learning style designator, duration... ) that the learning object have to abide (at its most).
+
+Some characteristics are also implyed by the Learner&#39;s Model. 
+
+The request is committed either to the Facilitator (and eventually to Learning Providers of the Domain) or to a single Learning Provider.
+ 
+Such request can be sent by (or else, this role can be implemented by) a Learner and a Learning Service Participant. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole">
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#MonitoringRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManagerRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The one that offers learning objects to Learner Roles and other Learning Provider Roles in a Domain. 
+Learning Objects either exist in their repository, or they are composed on the fly by the Provider. 
+Also the Provider can further adjust (adapt) the learning object during its execution. 
+
+Learner Roles execute Learning Objects with the purpose to acquire educational concepts (target concept) and achieve educational goals. 
+
+Other Providers obtain Learning Objects with the purpose to complete or enhance their Learning Objects and consequently help Learners achieve their goals.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#MonitoringRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#MonitoringRole">
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Monitors the Learner - Learnign Provider interaction, in case connection errors occur. Afterwords it communicates the errors to the Learner and the Provider.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManagerRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManagerRole">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerProfileManagerRole"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectProfileManagerRole"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ServiceProfileManagerRole"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">An abstact Manager that handles a Profile.
+
+It is extended by LearnerProfileManager_Role, LearningObjectProfileManager_Role and ServiceProfileManager_Role</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole">
+        <rdfs:subClassOf rdf:resource="&Role;Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Role;hasPeer"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManagerRole"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Manages the ratings in a domain. Services, Participants, and processes (learning objectes) are rated by Learners and Providers. 
+
+Rating Service Manages the ratings in a domain.. 
+The Entities that hold rates are : 
+(a) the Learner (i.e. the performance on concepts), 
+(b) the Learing Provider (i.e. the rates committes by Learners, or other Provides are related to the accuracy and the quality of services that they provide) 
+(c) Learning Objects (Learners can rate the Learning Objects on whether they assisted on aquaring the knowlegde that they offer)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ServiceProfileManagerRole -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ServiceProfileManagerRole">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManagerRole"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Manages the Service&#39; s profile (i.e. the Capabilities of a learning services)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Process.owl#InteractionProcess -->
+
+    <owl:Class rdf:about="&Process;InteractionProcess">
+        <rdfs:subClassOf rdf:resource="&Role;InteractiveBehavior"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Process.owl#LocalProcess -->
+
+    <owl:Class rdf:about="&Process;LocalProcess">
+        <rdfs:subClassOf rdf:resource="&Role;LocalBehavior"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Process.owl#Process -->
+
+    <owl:Class rdf:about="&Process;Process">
+        <rdfs:subClassOf rdf:resource="&Role;Behavior"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#Behavior -->
+
+    <owl:Class rdf:about="&Role;Behavior"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#InteractiveBehavior -->
+
+    <owl:Class rdf:about="&Role;InteractiveBehavior"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#LocalBehavior -->
+
+    <owl:Class rdf:about="&Role;LocalBehavior"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#Role -->
+
+    <owl:Class rdf:about="&Role;Role"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

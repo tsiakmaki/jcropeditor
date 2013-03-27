@@ -1,0 +1,661 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY LearnerTypeUO "http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl"
+     xmlns:LearnerTypeUO="http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">This is an upper ontology for learning (learner) types. This ontology is based on literature originating with educational and/or cognitive psychology and, in particular, on a number of proposals for learning style models, including Curry&#39;s taxonomic attempt (the &quot;onion model&quot;).</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#belongsToLayer -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;belongsToLayer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorLayer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&LearnerTypeUO;LearnerDimensionDesignator"/>
+                    <rdf:Description rdf:about="&LearnerTypeUO;LearnerTypeDimension"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#coDeterminesDimension -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;coDeterminesDimension">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#hasContraryInDimension -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;hasContraryInDimension">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <owl:inverseOf rdf:resource="&LearnerTypeUO;hasContraryInDimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#hasDesignator -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;hasDesignator">
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerType"/>
+        <owl:inverseOf rdf:resource="&LearnerTypeUO;isDesignatorForType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#hasTrait -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;hasTrait">
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorTrait"/>
+        <owl:inverseOf rdf:resource="&LearnerTypeUO;isTraitForDesignator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#isCoDeterminedByDesignator -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;isCoDeterminedByDesignator">
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+        <owl:inverseOf rdf:resource="&LearnerTypeUO;coDeterminesDimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#isDesignatorForType -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;isDesignatorForType">
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#isTraitForDesignator -->
+
+    <owl:ObjectProperty rdf:about="&LearnerTypeUO;isTraitForDesignator">
+        <rdfs:range rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorTrait"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#hasPersonalIndicatorMeasure -->
+
+    <owl:DatatypeProperty rdf:about="&LearnerTypeUO;hasPersonalIndicatorMeasure">
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#isAssessedByPsychometricTest -->
+
+    <owl:DatatypeProperty rdf:about="&LearnerTypeUO;isAssessedByPsychometricTest">
+        <rdfs:domain rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Abstract -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Abstract">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbDesignator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&LearnerTypeUO;hasContraryInDimension"/>
+                <owl:allValuesFrom rdf:resource="&LearnerTypeUO;Concrete"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;Concrete"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Tending and able to conceive general form regardless of particular content, internal structure rather than specific ways of representation.
+(Opposite: Concrete).
+The abstract-concrete dimension is present in both Gregorc&#39;s and in Kolb&#39;s theories of learning types.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Abstract-Active -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Abstract-Active">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Abstract-Concrete-Dimension -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Abstract-Concrete-Dimension">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&LearnerTypeUO;belongsToLayer"/>
+                <owl:allValuesFrom rdf:resource="&LearnerTypeUO;CognitiveLayer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&LearnerTypeUO;isCoDeterminedByDesignator"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&LearnerTypeUO;Abstract"/>
+                            <rdf:Description rdf:about="&LearnerTypeUO;Concrete"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">One of the dimensions in Gregorc&#39;s and in Kolb&#39;s learning style theories. Though an abstract/concrete student attitude has implications both for the information processing layer and for the instructional preferences layer, we think it is best classified as belonging to the cognitive layer.
+For Gregorc, this dimension is paired with the sequential/random dimension, resulting in four distinct learning styles/types.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Abstract-Random -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Abstract-Random">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Abstract-Reflective -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Abstract-Reflective">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Abstract-Sequential -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Abstract-Sequential">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Active -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Active">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;HoneyAndMumfordDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbDesignator"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;Reflective"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Learning by testing/ experimenting, tending to do things,&#39;make it happen&#39;, rather than pause and contemplate. Directly engages the problem rather than reflect on it.
+(Opposite: Reasoner/Reflective/Thinking)
+Present in both Kolb&#39;s and Honey and Mumford&#39;s theories. In this ontology we identify &#39;Active&#39; and Jackson&#39;s &#39;Initiator&#39;, despite some difference in the nuances of the two notions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Active-Reflective-Dimension -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Active-Reflective-Dimension">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#AllinsonHayesDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;AllinsonHayesDesignator">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Analytic -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Analytic">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Abstract"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;AllinsonHayesDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;DunnAndDunnDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;RidingDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Sequential"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;Global"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Defined here as a Sequential(as opposed to Global) Abstract Reasoner.
+Focusing on structural detail, tending to decompose complex wholes to their constituents in order to better understand them.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#CognitiveLayer -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;CognitiveLayer">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorLayer"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;InformationProcessingLayer"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;InstructionalPreferencesLayer"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Learner type designators at this layer are more resistant to change.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Concrete -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Concrete">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbDesignator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&LearnerTypeUO;hasContraryInDimension"/>
+                <owl:allValuesFrom rdf:resource="&LearnerTypeUO;Abstract"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Focusing on specific content rather than form, on specific way of representation of this content.
+(Opposite: Abstract)
+The abstract-concrete dimension is present in both Gregorc&#39;s and in Kolb&#39;s theories of learning types.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Concrete-Active -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Concrete-Active">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Concrete-Random -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Concrete-Random">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Concrete-Reflective -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Concrete-Reflective">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Concrete-Sequential -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Concrete-Sequential">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#DunnAndDunnDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;DunnAndDunnDesignator">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Feeling -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Feeling">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;MyerBriggsDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Global -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Global">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;DunnAndDunnDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Random"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;RidingDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#GregorcDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;GregorcDesignator">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#GregorcType -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;GregorcType">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerType"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;KolbType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#HoneyAndMumfordDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;HoneyAndMumfordDesignator">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Imager -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Imager">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;RidingDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Impulsive -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Impulsive">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Active"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;DunnAndDunnDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#InformationProcessingLayer -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;InformationProcessingLayer">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorLayer"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;InstructionalPreferencesLayer"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Learner type designators at this layer may change, not with as much difficulty as inner layer designators, and not with as much ease as outer layer designators.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#InstructionalPreferencesLayer -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;InstructionalPreferencesLayer">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorLayer"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Learner type designators at this layer are more succeptible to change</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Intuitive -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Intuitive">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Abstract"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;AllinsonHayesDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;MyerBriggsDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Random"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#KolbDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;KolbDesignator">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#KolbType -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;KolbType">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#LearnerDimensionDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;LearnerDimensionDesignator">
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerType"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorLayer"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorTrait"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#LearnerType -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;LearnerType">
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorLayer"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorTrait"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#LearnerTypeDesignatorLayer -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;LearnerTypeDesignatorLayer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&LearnerTypeUO;CognitiveLayer"/>
+                    <rdf:Description rdf:about="&LearnerTypeUO;InformationProcessingLayer"/>
+                    <rdf:Description rdf:about="&LearnerTypeUO;InstructionalPreferencesLayer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDesignatorTrait"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Lynn Curry&#39;s three layer &quot;onion model&quot; (inner, middle, outer).
+Layers provide one of the possible ways to classify type designators (and the dimensions they determine) into distinct classes, based on the idea of &quot;relative resistance to change&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#LearnerTypeDesignatorTrait -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;LearnerTypeDesignatorTrait">
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#LearnerTypeDimension -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;LearnerTypeDimension"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#MyerBriggsDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;MyerBriggsDesignator">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Pragmatist -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Pragmatist">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Concrete"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;HoneyAndMumfordDesignator"/>
+        <owl:disjointWith rdf:resource="&LearnerTypeUO;Theorist"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Tending to focus on usefulness. Introduced by Honey and Mumford, as opposed to Theorist.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Random -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Random">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Reflective -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Reflective">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;DunnAndDunnDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;HoneyAndMumfordDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;KolbDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#RidingDesignator -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;RidingDesignator">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerDimensionDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Sensing -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Sensing">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;MyerBriggsDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Sequential -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Sequential">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;GregorcDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Sequential-Random-Dimension -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Sequential-Random-Dimension">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;LearnerTypeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Theorist -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Theorist">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Abstract"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Global"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;HoneyAndMumfordDesignator"/>
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;Reflective"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Defined as an Abstract, Global Reasoner.
+This designator is introduced by Hermann, as opposing the rather poorly named designator &quot;Humanitarian&quot; (feeling, favoring social interaction, acting on impulse).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Thinking -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Thinking">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;MyerBriggsDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl#Verbaliser -->
+
+    <owl:Class rdf:about="&LearnerTypeUO;Verbaliser">
+        <rdfs:subClassOf rdf:resource="&LearnerTypeUO;RidingDesignator"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&LearnerTypeUO;Abstract-Concrete-Dimension"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;Active-Reflective-Dimension"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;Sequential-Random-Dimension"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&LearnerTypeUO;AllinsonHayesDesignator"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;DunnAndDunnDesignator"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;GregorcDesignator"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;HoneyAndMumfordDesignator"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;KolbDesignator"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;MyerBriggsDesignator"/>
+            <rdf:Description rdf:about="&LearnerTypeUO;RidingDesignator"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,472 @@
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+
+
+
+Ontology: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl>
+
+Import: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl>
+Import: <http://www.cs.teilar.gr/ontologies/Participant.owl>
+Import: <http://www.cs.teilar.g/ontologies/KOrder.owl>
+
+Annotations: 
+    rdfs:comment "An ontology for a Learning Domain (in the CROP view)",
+    <http://purl.org/dc/elements/1.1/creator> "Takis Hartonas, Maria Tsiakmaki, Antigoni Veniadou",
+    <http://purl.org/dc/elements/1.1/date> "January 2011"
+
+AnnotationProperty: <http://purl.org/dc/elements/1.1/date>
+
+    
+AnnotationProperty: <http://purl.org/dc/elements/1.1/creator>
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated>
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole>
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite>
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy>
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/Process.owl#hasComponent>
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/LearningObject.owl#targets>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Demographics>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearnerProfileRepository>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#Repository>,
+        <http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> some <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.g/ontologies/KOrder.owl#KOrder>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#DomainFacilitator>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/Participant.owl#Service>,
+        <http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#FacilitatorRole>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Message.owl#Message>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#MonitoringRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#ContactInfo>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Channel.owl#CommunicationChannel>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Role.owl#Role>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#DomainParticipantConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerModel.owl#Learner>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/Participant.owl#Actor>,
+        (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerProfileManagerRole>)
+         and (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerRole>)
+         and (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectRequestorRole>)
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#GraphConcept>
+
+    Annotations: 
+        rdfs:comment "Any concept relating to either a general notion of graph, or specific types of graphs of relevance to Learners, Learning Objects and Learning Domains."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningDomainConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraph>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#RatingService>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/Participant.owl#Service>,
+        (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole>)
+         and (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> only <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole>)
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Graph.owl#Graph>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#GraphConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+
+    Annotations: 
+        rdfs:comment "Any concept relating to describing issues of communication, such as the communication language, communication speech act type, messages echanged, communication channels and locations linked by them etc."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningDomainConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#MetaDataRepository>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#Repository>,
+        <http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> some <http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOM>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningServiceCapability>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ServiceProfileConcept>,
+        (<http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite> min 0 <http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept>)
+         and (<http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> exactly 1 <http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOM>)
+         and (<http://www.cs.teilar.gr/ontologies/LearningObject.owl#targets> exactly 1 <http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective>)
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ServiceProfileRepository>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#Repository>,
+        <http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> some <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningServiceProfile>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Address>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+
+    Annotations: 
+        rdfs:comment "Any concept relating to the description of a Learning Object, such as the LearningObject concept itself, as well as concepts such as Learning Object Metadata etc."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningDomainConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#FacilitatorRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElementComponent>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIPElement>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningService>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/Participant.owl#Service>,
+        (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectRequestorRole>)
+         and (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProviderRole>)
+         and (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ServiceProfileManagerRole>)
+         and (<http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> exactly 1 <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectRepository>)
+         and (<http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy> exactly 1 <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningServiceProfile>)
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElement>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#DomainOntology>
+
+    Annotations: 
+        rdfs:comment "The ontology of concepts taught in the Domain."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningDomainConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Role.owl#Behavior>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#DomainParticipantConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Expression.owl#Expression>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerProfileManagerRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/XModel.owl#ExecutionModel>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#LearningBehavior>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/Role.owl#InteractiveBehavior>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Participant.owl#Service>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/Channel.owl#Location>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Name>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningServiceProfile>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ServiceProfileConcept>,
+        <http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> some <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningServiceCapability>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective>
+
+    Annotations: 
+        rdfs:comment "A Concept, Course (set of concepts) or Discipline (set of courses)."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Graph.owl#Node>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#GraphConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ServiceProfileConcept>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ParticipantProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#Repository>
+
+    Annotations: 
+        rdfs:comment "Repositories are stores of items of various kinds in a Learning Domain. "
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningDomainConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#MonitoringService>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/Participant.owl#Service>,
+        (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#MonitoringRole>)
+         and (<http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> only <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#MonitoringRole>)
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityHistory>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#DomainParticipantConcept>
+
+    Annotations: 
+        rdfs:comment "Any concept relating to describing the participants in a Learning Domain, i.e. the types of participants, the roles they play, their peers, their behavior etc."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningDomainConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Role.owl#InteractiveBehavior>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ParticipantProfileConcept>,
+        (<http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> some <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle>)
+         and (<http://www.cs.teilar.gr/ontologies/Process.owl#hasComponent> exactly 1 <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Address>)
+         and (<http://www.cs.teilar.gr/ontologies/Process.owl#hasComponent> exactly 1 <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#ContactInfo>)
+         and (<http://www.cs.teilar.gr/ontologies/Process.owl#hasComponent> exactly 1 <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Demographics>)
+         and (<http://www.cs.teilar.gr/ontologies/Process.owl#hasComponent> exactly 1 <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIP>)
+         and (<http://www.cs.teilar.gr/ontologies/Process.owl#hasComponent> exactly 1 <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Name>)
+         and (<http://www.cs.teilar.gr/ontologies/Process.owl#hasComponent> exactly 1 <http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraph>)
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Participant.owl#Participant>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#DomainParticipantConcept>,
+        <http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole> some <http://www.cs.teilar.gr/ontologies/Role.owl#Role>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#RatingRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/Participant.owl#Actor>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIP>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectRepository>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#Repository>,
+        <http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated> some <http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningDomainConcept>
+
+    Annotations: 
+        rdfs:comment "Any concept relating to partially describing a Learning Domain"
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Message.owl#MessageName>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ServiceProfileManagerRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/XModel.owl#ExecutionManager>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIPContentType>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#CommunicationConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectRequestorRole>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/Graph.owl#Edge>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#GraphConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ParticipantProfileConcept>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#DomainParticipantConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityRecord>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#ActorProfileConcept>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOM>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningDomain.owl#LearningObjectConcept>
+    
+    

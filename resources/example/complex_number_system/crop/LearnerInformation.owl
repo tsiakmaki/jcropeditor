@@ -1,0 +1,899 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LearnerInformation.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     ontologyIRI="http://www.cs.teilar.gr/ontologies/LearnerInformation.owl">
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Import>http://www.cs.teilar.gr/ontologies/KConcept.owl</Import>
+    <Import>http://www.cs.teilar.gr/ontologies/LearningStyle.owl</Import>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <Literal datatypeIRI="&xsd;date">20-01-2011</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&xsd;string">The LIP ontology is an owl binding for the IMS Learner Information Package. The structure of the LIP data is as follows:
+• Identification: Biographic and demographic data relevant to learning;
+• Goal: Learning, career and other objectives and aspirations;
+• Qualifications, Certifications and Licenses (qcl): Qualifications, certifications and licenses granted by
+recognized authorities;
+• Activity: Any learning-related activity in any state of completion. Could be self-reported. Includes formal and
+informal education, training, work experience, and military or civic service;
+• Transcript: A record that is used to provide an institutionally-based summary of academic achievement. The
+structure of this record can take many forms;
+• Interest: Information describing hobbies and recreational activities;
+• Competency: Skills, knowledge, and abilities acquired in the cognitive, affective, and/or psychomotor domains;
+• Affiliation: Membership of professional organizations, etc. Membership of groups is covered by the IMS
+Enterprise specification;
+• Accessibility: General accessibility to the learner information as defined through language capabilities,
+disabilities, eligibilities and learning preferences including cognitive preferences (e.g. issues of learning style), physical preferences (e.g. a preference for large print), and technological preferences (e.g. a preference for a particular computer platform);
+• Securitykey: The set of passwords and security keys assigned to the learner for transactions with learner
+information systems and services;
+• Relationship: The set of relationships between the core components. The core structures do not have within
+them identifiers that link to the core structures. Instead all of these relationships are captured in a single core
+structure thereby making the links simpler to identify and manage.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="&xsd;string">Takis Hartonas</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Accessibility"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Address"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Affiliation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Competency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ContactInfo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Demographics"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Goal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Identification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LIP"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LIPContentType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LIPElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Name"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OrganizationName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PersonName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Privacy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Qcl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Referential"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Temporal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#addressInfo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#affiliated"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contactinfo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contentype"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#demographics"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasComponent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasLIPElement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isComponentOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isLIPElementOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#name"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#style"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#addressInfo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#addresstype"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#city"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#contactinfo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#country"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#date"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#demographics"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#duration"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#email"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#firstname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#gender"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#issuedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#language"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#lastname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#middlename"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#organizationName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#personName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#pobox"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#preferredname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#region"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#right"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#role"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#status"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#street"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#streetnumber"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#telephone"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#vocabulary"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#web"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Accessibility"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#style"/>
+                <Class IRI="http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#language"/>
+                <Datatype abbreviatedIRI="xsd:language"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Affiliation"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#affiliated"/>
+                <Class IRI="#Identification"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#duration"/>
+                <Datatype abbreviatedIRI="xsd:duration"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#status"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">active</Literal>
+                    <Literal datatypeIRI="&xsd;string">past</Literal>
+                </DataOneOf>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#vocabulary"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">educational</Literal>
+                    <Literal datatypeIRI="&xsd;string">professional</Literal>
+                    <Literal datatypeIRI="&xsd;string">recreational</Literal>
+                    <Literal datatypeIRI="&xsd;string">social</Literal>
+                </DataOneOf>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Competency"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#contentype"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course"/>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Discipline"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#date"/>
+                <Datatype abbreviatedIRI="xsd:date"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#vocabulary"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">excellent</Literal>
+                    <Literal datatypeIRI="&xsd;string">good</Literal>
+                    <Literal datatypeIRI="&xsd;string">poor</Literal>
+                    <Literal datatypeIRI="&xsd;string">very good</Literal>
+                </DataOneOf>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Goal"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#contentype"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course"/>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Discipline"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#date"/>
+                <Datatype abbreviatedIRI="xsd:date"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#vocabulary"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">high</Literal>
+                    <Literal datatypeIRI="&xsd;string">low</Literal>
+                    <Literal datatypeIRI="&xsd;string">medium</Literal>
+                </DataOneOf>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Identification"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#addressInfo"/>
+                <Class IRI="#Address"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#contactinfo"/>
+                <Class IRI="#ContactInfo"/>
+            </ObjectSomeValuesFrom>
+            <ObjectMinCardinality cardinality="0">
+                <ObjectProperty IRI="#demographics"/>
+                <Class IRI="#Demographics"/>
+            </ObjectMinCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#contentype"/>
+                <Class IRI="#LIPContentType"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#name"/>
+                <Class IRI="#Name"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LIP"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasLIPElement"/>
+                <Class IRI="#LIPElement"/>
+            </ObjectSomeValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#hasLIPElement"/>
+                <Class IRI="#LIPElement"/>
+            </ObjectAllValuesFrom>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#contentype"/>
+                <Class IRI="#LIPContentType"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LIPContentType"/>
+        <ObjectIntersectionOf>
+            <ObjectMinCardinality cardinality="0">
+                <ObjectProperty IRI="#contentype"/>
+                <Class IRI="#Privacy"/>
+            </ObjectMinCardinality>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#contentype"/>
+                <Class IRI="#Referential"/>
+            </ObjectMinCardinality>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#contentype"/>
+                <Class IRI="#Temporal"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LIPElement"/>
+        <ObjectUnionOf>
+            <Class IRI="#Accessibility"/>
+            <Class IRI="#Activity"/>
+            <Class IRI="#Affiliation"/>
+            <Class IRI="#Competency"/>
+            <Class IRI="#Goal"/>
+            <Class IRI="#Identification"/>
+            <Class IRI="#Qcl"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OrganizationName"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#organizationName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PersonName"/>
+        <ObjectIntersectionOf>
+            <DataMinCardinality cardinality="0">
+                <DataProperty IRI="#middlename"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataMinCardinality>
+            <DataMinCardinality cardinality="0">
+                <DataProperty IRI="#preferredname"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataMinCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#firstname"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#lastname"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Privacy"/>
+        <ObjectIntersectionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#right"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">Access</Literal>
+                    <Literal datatypeIRI="&xsd;string">ReadAccess</Literal>
+                    <Literal datatypeIRI="&xsd;string">WriteAccess</Literal>
+                </DataOneOf>
+            </DataSomeValuesFrom>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#role"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">All</Literal>
+                    <Literal datatypeIRI="&xsd;string">Creator</Literal>
+                    <Literal datatypeIRI="&xsd;string">Learner</Literal>
+                    <Literal datatypeIRI="&xsd;string">Owner</Literal>
+                    <Literal datatypeIRI="&xsd;string">ProfileManager</Literal>
+                    <Literal datatypeIRI="&xsd;string">Steward</Literal>
+                </DataOneOf>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Qcl"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#contentype"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course"/>
+                    <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#Discipline"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#date"/>
+                <Datatype abbreviatedIRI="xsd:date"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#issuedBy"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#vocabulary"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">Award</Literal>
+                    <Literal datatypeIRI="&xsd;string">Certificate</Literal>
+                    <Literal datatypeIRI="&xsd;string">Degree</Literal>
+                </DataOneOf>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Referential"/>
+        <ObjectIntersectionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#issuedBy"/>
+                <Datatype abbreviatedIRI="xsd:anyURI"/>
+            </DataSomeValuesFrom>
+            <DataMinCardinality cardinality="0">
+                <DataProperty IRI="http://www.cs.teilar.gr/ontologies/lom.owl#location"/>
+                <Datatype abbreviatedIRI="xsd:anyURI"/>
+            </DataMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Temporal"/>
+        <ObjectIntersectionOf>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#date"/>
+                <Datatype abbreviatedIRI="xsd:dateTime"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#vocabulary"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">Creation</Literal>
+                    <Literal datatypeIRI="&xsd;string">Expiry</Literal>
+                    <Literal datatypeIRI="&xsd;string">Purge</Literal>
+                    <Literal datatypeIRI="&xsd;string">Update</Literal>
+                </DataOneOf>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Accessibility"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Activity"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Activity"/>
+        <ObjectIntersectionOf>
+            <ObjectMaxCardinality cardinality="1">
+                <ObjectProperty IRI="#hasComponent"/>
+                <Class IRI="#Competency"/>
+            </ObjectMaxCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#status"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">abandoned</Literal>
+                    <Literal datatypeIRI="&xsd;string">completed</Literal>
+                    <Literal datatypeIRI="&xsd;string">suspended</Literal>
+                </DataOneOf>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Address"/>
+        <ObjectIntersectionOf>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#addresstype"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">Home</Literal>
+                    <Literal datatypeIRI="&xsd;string">Work</Literal>
+                </DataOneOf>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#city"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#country"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#pobox"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#region"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#streetnumber"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Affiliation"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Competency"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ContactInfo"/>
+        <ObjectIntersectionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#email"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#telephone"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#web"/>
+                <Datatype abbreviatedIRI="xsd:anyURI"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Demographics"/>
+        <ObjectIntersectionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#date"/>
+                <Datatype abbreviatedIRI="xsd:date"/>
+            </DataSomeValuesFrom>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#gender"/>
+                <DataOneOf>
+                    <Literal datatypeIRI="&xsd;string">Female</Literal>
+                    <Literal datatypeIRI="&xsd;string">Male</Literal>
+                </DataOneOf>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Goal"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Identification"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LIP"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#contentype"/>
+            <Class IRI="#LIPContentType"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LIPElement"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#contentype"/>
+            <Class IRI="#LIPContentType"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OrganizationName"/>
+        <Class IRI="#Name"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PersonName"/>
+        <Class IRI="#Name"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Privacy"/>
+        <Class IRI="#LIPContentType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Qcl"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Referential"/>
+        <Class IRI="#LIPContentType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Temporal"/>
+        <Class IRI="#LIPContentType"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+        <Class IRI="#Address"/>
+        <Class IRI="#ContactInfo"/>
+        <Class IRI="#Demographics"/>
+        <Class IRI="#LIP"/>
+        <Class IRI="#Name"/>
+        <Class IRI="http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Accessibility"/>
+        <Class IRI="#Activity"/>
+        <Class IRI="#Affiliation"/>
+        <Class IRI="#Competency"/>
+        <Class IRI="#Goal"/>
+        <Class IRI="#Identification"/>
+        <Class IRI="#Qcl"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Address"/>
+        <Class IRI="#ContactInfo"/>
+        <Class IRI="#Demographics"/>
+        <Class IRI="#LIPContentType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Address"/>
+        <Class IRI="#ContactInfo"/>
+        <Class IRI="#Demographics"/>
+        <Class IRI="#LIPElement"/>
+        <Class IRI="#Name"/>
+        <Class IRI="http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#LIP"/>
+        <Class IRI="#LIPContentType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#LIP"/>
+        <Class IRI="#LIPElement"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#LIPContentType"/>
+        <Class IRI="#LIPElement"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#LIPContentType"/>
+        <Class IRI="#Name"/>
+        <Class IRI="http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Name"/>
+        <Class IRI="http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#OrganizationName"/>
+        <Class IRI="#PersonName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Privacy"/>
+        <Class IRI="#Referential"/>
+        <Class IRI="#Temporal"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#addressInfo"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isComponentOf"/>
+        <ObjectProperty IRI="#hasComponent"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasLIPElement"/>
+        <ObjectProperty IRI="#isLIPElementOf"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasLIPElement"/>
+        <Class IRI="#LIP"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#contentype"/>
+        <Class IRI="#LIPContentType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasLIPElement"/>
+        <Class IRI="#LIPElement"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#addresstype"/>
+        <DataProperty IRI="#addressInfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#city"/>
+        <DataProperty IRI="#addressInfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#country"/>
+        <DataProperty IRI="#addressInfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#date"/>
+        <DataProperty IRI="#demographics"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#email"/>
+        <DataProperty IRI="#contactinfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#firstname"/>
+        <DataProperty IRI="#personName"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#gender"/>
+        <DataProperty IRI="#demographics"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#lastname"/>
+        <DataProperty IRI="#personName"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#middlename"/>
+        <DataProperty IRI="#personName"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#organizationName"/>
+        <DataProperty IRI="#name"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#personName"/>
+        <DataProperty IRI="#name"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#pobox"/>
+        <DataProperty IRI="#addressInfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#preferredname"/>
+        <DataProperty IRI="#personName"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#region"/>
+        <DataProperty IRI="#addressInfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#street"/>
+        <DataProperty IRI="#addressInfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#streetnumber"/>
+        <DataProperty IRI="#addressInfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#telephone"/>
+        <DataProperty IRI="#contactinfo"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#web"/>
+        <DataProperty IRI="#contactinfo"/>
+    </SubDataPropertyOf>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Accessibility</IRI>
+        <Literal datatypeIRI="&xsd;string">General accessibility to the learner information as defined through language capabilities, disabilities, eligibilities and learning preferences including cognitive preferences (e.g. issues of learning style), IMS LIP Information Model Final Specification Version 1.0 / 9th March, 2001 10 IMS physical preferences (e.g. a preference for large print), and technological preferences (e.g. a preference for a particular computer platform)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Activity</IRI>
+        <Literal datatypeIRI="&xsd;string">Any learning-related activity in any state of completion. Could be self-reported. Includes formal and informal education, training, work experience, and military or civic service;
+
+(hasComponent max 1 Competency)  //acquired by the activity
+ and (entity some anyURI)                  //the learning object user interacted with
+ and (status exactly 1 {&quot;abandoned&quot; , &quot;completed&quot; , &quot;suspended&quot;})</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Competency</IRI>
+        <Literal datatypeIRI="&xsd;string">Skills, knowledge, and abilities acquired in the cognitive, affective, and/or psychomotor domains.
+
+The competency learner information consists of the descriptions of the skills the learner has acquired. These skills may be associated with some formal or informal training or work history (described in the �?activity’) and formal awards (described in the �?qcl’). A different �?competency’ structure will be used for each competency through an external reference mechanism. The adopted competency definition follows the work of the IMS Competency Definition working-group.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Goal</IRI>
+        <Literal datatypeIRI="&xsd;string">Learning, career and other objectives and aspirations;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Identification</IRI>
+        <Literal datatypeIRI="&xsd;string">The identification learner information contains all of the data for a specific individual or organisation. This includes data such as: name, address, contact information, agent and demographics.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LIP</IRI>
+        <Literal datatypeIRI="&xsd;string">IMS Learner Information Package</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Privacy</IRI>
+        <Literal datatypeIRI="&xsd;string">Data that is to be used to describe the access to and to ensure the integrity of the learner information.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Qcl</IRI>
+        <Literal datatypeIRI="&xsd;string">Qualifications, certifications and licenses granted by recognized authorities;
+
+The qcl learner information consists of the qualifications, certifications and licenses awarded to the learner i.e. the formally recognised products of their learning and work history. This includes information on the awarding body and may also include electronic copies of the actual documents. A different �?qcl’ structure will be used for each qualification, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Referential</IRI>
+        <Literal datatypeIRI="&xsd;string">Reference information that is used to uniquely identify the learner information package and the data structures within it.
+It consists of an issueing source and (optionally) a location (URI) the LIP file or LIPElement in question. 
+
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Temporal</IRI>
+        <Literal datatypeIRI="&xsd;string">Data describing time-based information about the data structure e.g. time of creation, date of expiry, etc.
+If the expire date is undefined then the information is assumed to have an infinite period of validity. Several different temporal definitions may be defined for a structure e.g. time of creation, and expiry.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#preferredname</IRI>
+        <Literal datatypeIRI="&xsd;string">e.g. nikname</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>xsd:ID</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The purpose of the xsd:ID datatype is to define unique identifiers that are global to a document and emulate the ID attribute type available in the XML DTDs.
+
+Unlike their DTD counterparts, W3C XML Schema ID datatypes can be applied to not only attributes but also simple element content.
+
+For both attributes and simple element content, the lexical domain of these datatypes is the lexical domain of XML nonqualified names (xsd:NCName).
+
+Identifiers defined using this datatype are global to a document and provide a way to uniquely identify their containing element, whatever its type and name is.
+
+The constraint added by this datatype, beyond the xsd:NCName datatype from which it is derived, is that the values of all the attributes and elements that have an ID datatype in a document must be unique.
+
+Note that the behavior of this datatype depends on whether the RELAX NG implementation supports RELAX NG DTD compatibility datatype library, in which case, the uniqueness of the identifiers will be checked. This datatype can be used both for elements and for defining multiple type assignment to attributes defined as ID, depending on their location in the schema.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

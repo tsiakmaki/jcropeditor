@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ch "http://www.cs.teilar.gr/ontologies/Channel.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY lang "http://www.cs.teilar.gr/ontologies/Expression.owl#" >
+    <!ENTITY act "http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/Message.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/Message.owl"
+     xmlns:ch="http://www.cs.teilar.gr/ontologies/Channel.owl#"
+     xmlns:act="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#"
+     xmlns:lang="http://www.cs.teilar.gr/ontologies/Expression.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl">
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#hasCommunicativeType -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl#hasCommunicativeType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&act;CommunicativeActType"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#hasContent -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl#hasContent">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#hasName -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl#hasName">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#hasRecipient -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl#hasRecipient">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>in a learning domain the sender and the receipient is a Role</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#hasSender -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl#hasSender">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>in a learning domain the sender and the receipient is a Role</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType -->
+
+    <owl:Class rdf:about="&act;CommunicativeActType">
+        <owl:disjointWith rdf:resource="&lang;Expression"/>
+        <owl:disjointWith rdf:resource="&lang;LogicalLanguage"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Expression -->
+
+    <owl:Class rdf:about="&lang;Expression">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage -->
+
+    <owl:Class rdf:about="&lang;LogicalLanguage">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#Message"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator -->
+
+    <owl:Class rdf:about="&lang;LogicalOperator"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType -->
+
+    <owl:Class rdf:about="&lang;ParameterType"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#Message -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl#Message">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#hasSender"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#hasContent"/>
+                <owl:onClass rdf:resource="&lang;Expression"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#hasCommunicativeType"/>
+                <owl:onClass rdf:resource="&act;CommunicativeActType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Message.owl#hasRecipient"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#MessageName -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Message.owl#MessageName">
+        <rdfs:comment rdf:datatype="&xsd;string">This is the Message Name. In the Interaction Calculus a syntax of the form A--&gt;B:ch(op,v,x) designates an exchange where A sends to B, using channel ch, a message, whose name is op and where the value v is to be assigned by B to its local variable x. In this context, op is an &quot;operator name&quot;, which is precisely the message name.
+EXAMPLE
+&lt;message name=&quot;requestBookQuote&quot;&gt;
+  &lt;part name=&quot;bookQuote&quot; type=&quot;xs:string&quot;/&gt;
+&lt;/message&gt;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&act;CommunicativeActType"/>
+            <rdf:Description rdf:about="&lang;LogicalOperator"/>
+            <rdf:Description rdf:about="&lang;ParameterType"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

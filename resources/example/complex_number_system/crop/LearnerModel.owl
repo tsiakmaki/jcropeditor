@@ -1,0 +1,662 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY LearnerTypeUO "file:/E:/ONTOLOGIES/LearnerTypeUO.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY graph "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+    <!ENTITY kconcept "http://www.cs.teilar.gr/ontologies/KConcept.owl#" >
+    <!ENTITY conceptgraph "http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#" >
+    <!ENTITY LearningObject "http://www.cs.teilar.gr/ontologies/LearningObject.owl#" >
+    <!ENTITY LearningBehavior "http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#" >
+    <!ENTITY LIP "http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#" >
+    <!ENTITY lom "http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LearnerModel.owl"
+     xmlns:LearnerTypeUO="file:/E:/ONTOLOGIES/LearnerTypeUO.owl#"
+     xmlns:LearningObject="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xmlns:LIP="http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:kconcept="http://www.cs.teilar.gr/ontologies/KConcept.owl#"
+     xmlns:graph="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:LearningBehavior="http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:conceptgraph="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#"
+     xmlns:lom="http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl">
+        <dc:date rdf:datatype="&xsd;date">January 13, 2011</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">The Learner Model consists of the IMS LIP (Learner Information Package) and a Model Graph. This graph is much like a concept graph, except for the association of additional entities on each node (other than a concept), such as performance measure etc.
+
+The model graph is built incrementally, each time the learner uses some learning object. The concept graph of the learning object is merged with the model graph in the learner model and it is subsequently updated with the addition of use information, such as the performance of the student in learning each concept taught by the learning object.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerInformation.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearningBehavior.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
+
+    <rdfs:Datatype rdf:about="&xsd;duration"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated -->
+
+    <owl:ObjectProperty rdf:about="&graph;hasAssociated">
+        <owl:equivalentProperty rdf:resource="&LIP;hasComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasNode -->
+
+    <owl:ObjectProperty rdf:about="&graph;hasNode"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#hasComponent -->
+
+    <owl:ObjectProperty rdf:about="&LIP;hasComponent"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#behavior -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#behavior"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasHistory -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasHistory">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityHistory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasPeerObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasPeerObject"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasTaughtByRecord -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasTaughtByRecord">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityRecord"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy -->
+
+    <owl:ObjectProperty rdf:about="&LearningObject;describedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#duration -->
+
+    <owl:DatatypeProperty rdf:about="&LIP;duration"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasAcceptanceReason -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasAcceptanceReason">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">author</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">cost</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">difficulty</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">duration</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">language</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">teachningStyle</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">technicalRequirement</rdf:first>
+                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasAcceptedObjectId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasAcceptedObjectId">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasPerformanceValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasPerformanceValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasRejectedObjectId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasRejectedObjectId">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasRejectionReason -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasRejectionReason">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">author</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">cost</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">difficulty</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">duration</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">language</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">teachningStyle</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">technicalRequirement</rdf:first>
+                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#id -->
+
+    <owl:DatatypeProperty rdf:about="&lom;id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraph -->
+
+    <owl:Class rdf:about="&conceptgraph;ConceptGraph"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraphNode -->
+
+    <owl:Class rdf:about="&conceptgraph;ConceptGraphNode">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraphNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Edge -->
+
+    <owl:Class rdf:about="&graph;Edge"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Graph -->
+
+    <owl:Class rdf:about="&graph;Graph"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Node -->
+
+    <owl:Class rdf:about="&graph;Node"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept -->
+
+    <owl:Class rdf:about="&kconcept;Concept"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Accessibility -->
+
+    <owl:Class rdf:about="&LIP;Accessibility"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Activity -->
+
+    <owl:Class rdf:about="&LIP;Activity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityRecord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIP -->
+
+    <owl:Class rdf:about="&LIP;LIP"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIPElement -->
+
+    <owl:Class rdf:about="&LIP;LIPElement"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#Qcl -->
+
+    <owl:Class rdf:about="&LIP;Qcl"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityHistory -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityHistory">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&LIP;hasComponent"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityRecord"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The RequestResponseHistory is a set of RequestResponseRecords</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityRecord -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityRecord">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:onClass rdf:resource="&kconcept;Concept"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasAcceptanceReason"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">author</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">cost</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">difficulty</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">duration</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">language</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string">teachningStyle</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                        <rdf:first rdf:datatype="&xsd;string">technicalRequirement</rdf:first>
+                                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasRejectionReason"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">author</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">cost</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">difficulty</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">duration</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">language</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string">teachningStyle</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                        <rdf:first rdf:datatype="&xsd;string">technicalRequirement</rdf:first>
+                                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasAcceptedObjectId"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasRejectedObjectId"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&LIP;duration"/>
+                <owl:someValuesFrom rdf:resource="&xsd;duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">An Instance of this class is a record of a request made by the learner for teaching material targeting a specified (by the learner) educational objective. The record also contains information on a specific response (offer) received by the user, proposing a learning object to him/her. It further contains information on the decision made by the user, possibly with additional explanations as to the reason why the offer was rejected (or accepted), e.g. preference (or lack thereof) for a specific author, rating of the proposed material (offered by some Rating Service), cost, expected duration etc. It further contains, if the offer of the record was eventually accepted and the learning object used, the rating that the learner assigned to the used material.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#Learner -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#Learner">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraph"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#behavior"/>
+                <owl:someValuesFrom rdf:resource="&LearningBehavior;LearningBehavior"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&LearningObject;describedBy"/>
+                <owl:onClass rdf:resource="&LIP;LIP"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraph -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraph">
+        <rdfs:subClassOf rdf:resource="&graph;Graph"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:onClass rdf:resource="&conceptgraph;ConceptGraph"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasNode"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraphNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A Learner Model Graph is much like a Concept Graph, except for the association of additional entities to its nodes. The associated entities are
+a) a concept (as in a Concept Graph)
+b) a RequestResponseHistory and
+c) a Performance value
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraphNode -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraphNode">
+        <rdfs:subClassOf rdf:resource="&graph;Node"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasHistory"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#ActivityHistory"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:onClass rdf:resource="&kconcept;Concept"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:someValuesFrom rdf:resource="&LearningBehavior;LearningBehavior"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasPerformanceValue"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;nonNegativeInteger"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">100</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#LearningBehavior -->
+
+    <owl:Class rdf:about="&LearningBehavior;LearningBehavior">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasPeerObject"/>
+                <owl:someValuesFrom rdf:resource="&LearningObject;LearningObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject -->
+
+    <owl:Class rdf:about="&LearningObject;LearningObject"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

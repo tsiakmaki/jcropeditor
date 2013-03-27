@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.teilar.gr/ontologies/complex_numbers.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.teilar.gr/ontologies/complex_numbers.owl">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#AbsoluteValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Addition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ComplexNumberDefinition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ComplexNumberSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conjugation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Division"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Multiplication"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Operation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PropertiesOfConjugates"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RealNumberSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Subtraction"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Operation"/>
+        <ObjectUnionOf>
+            <Class IRI="#Addition"/>
+            <Class IRI="#Conjugation"/>
+            <Class IRI="#Division"/>
+            <Class IRI="#Multiplication"/>
+            <Class IRI="#Subtraction"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Addition"/>
+        <Class IRI="#Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conjugation"/>
+        <Class IRI="#Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Division"/>
+        <Class IRI="#Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Multiplication"/>
+        <Class IRI="#Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Subtraction"/>
+        <Class IRI="#Operation"/>
+    </SubClassOf>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AbsoluteValue</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The distance from the origin to any complex number is the absolute value....</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Addition</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Complex numbers are added by adding the real and imaginary parts of the summands. That is to say:</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ComplexNumberDefinition</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Complex numbers allow for solutions to certain equations that have no real solution
+
+A complex number is a number that can be expressed in the form where a and b are real numbers and i is the imaginary unit, satisfying i2 = −1. For example, −3.5 + 2i is a complex number. It is common to write a for a + 0i and bi for 0 + bi. Moreover, when the imaginary part is negative, it is common to write a − bi with b &gt; 0 instead of a + (−b)i, for example 3 − 4i instead of 3 + (−4)i.
+
+(from http://en.wikipedia.org/wiki/Complex_number)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Conjugation</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The complex conjugate of the complex number z = x + yi is defined to be x − yi. It is denoted \bar{z} or z^*\,. Geometrically, \bar{z} is the &quot;reflection&quot; of z about the real axis. In particular, conjugating twice gives the original complex number: \bar{\bar{z}}=z.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Division</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The division of two complex numbers is defined in terms of complex multiplication, which is described above, and real division. Where at least one of c and d is non-zero:</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Multiplication</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The multiplication of two complex numbers is defined by the following formula:</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PropertiesOfConjugates</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Below there are also several properties of conjugates...</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RealNumberSystem</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">In mathematics, a real number is a value that represents a quantity along a continuous line. The real numbers include all the rational numbers, such as the integer −5 and the fraction 4/3, and all the irrational numbers such as √2 (1.41421356... the square root of two, an irrational algebraic number) and π (3.14159265..., a transcendental number). Real numbers can be thought of as points on an infinitely long line called the number line or real line, where the points corresponding to integers are equally spaced. Any real number can be determined by a possibly infinite decimal representation such as that of 8.632, where each consecutive digit is measured in units one tenth the size of the previous one. The real line can be thought of as a part of the complex plane, and correspondingly, complex numbers include real numbers as a special case.
+
+(from http://en.wikipedia.org/wiki/Complex_number)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RealNumberSystem</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the prerequisite</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.3) http://owlapi.sourceforge.net -->
+

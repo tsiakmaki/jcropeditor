@@ -1,0 +1,52 @@
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+
+
+
+Ontology: <http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl>
+
+Import: <http://www.cs.teilar.gr/ontologies/learnermodel.owl>
+
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/graph.owl#hasAssociated>
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/LearningObject.owl#targets>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#LearningServiceCapability>
+
+    SubClassOf: 
+        (<http://www.cs.teilar.gr/ontologies/LearningObject.owl#targets> exactly 1 <http://www.cs.teilar.gr/ontologies/kconcept.owl#EducationalObjective>)
+         and (<http://www.cs.teilar.gr/ontologies/graph.owl#hasAssociated> exactly 1 <http://www.cs.teilar.gr/ontologies/lom.owl#LOM>)
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#Profile>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/learnermodel.owl#LearnerProfile>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#Profile>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#LearningServiceProfile>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#Profile>,
+        <http://www.cs.teilar.gr/ontologies/graph.owl#hasAssociated> some 
+<http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#LearningServiceCapability>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/kconcept.owl#EducationalObjective>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/lom.owl#LOM>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#Profile>
+    
+    

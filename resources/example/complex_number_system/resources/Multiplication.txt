@@ -1,0 +1,19 @@
+Multiplication
+
+The multiplication of two complex numbers is defined by the following formula:
+
+Equivalent Classes
+    - Multiplication
+
+
+SuperClasses/ Inherited anonymous classes
+    - Operations
+
+
+Disjoint Classess
+    - Nothing
+
+
+Members
+
+

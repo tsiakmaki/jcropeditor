@@ -1,0 +1,22 @@
+ComplexNumber
+
+Complex numbers allow for solutions to certain equations that have no real solution
+
+A complex number is a number that can be expressed in the form where a and b are real numbers and i is the imaginary unit, satisfying i2 = ?1. For example, ?3.5 + 2i is a complex number. It is common to write a for a + 0i and bi for 0 + bi. Moreover, when the imaginary part is negative, it is common to write a ? bi with b > 0 instead of a + (?b)i, for example 3 ? 4i instead of 3 + (?4)i.
+
+
+Equivalent Classes
+    - ComplexNumber
+
+
+SuperClasses/ Inherited anonymous classes
+    - Thing
+
+
+Disjoint Classess
+    - Nothing
+
+
+Members
+
+

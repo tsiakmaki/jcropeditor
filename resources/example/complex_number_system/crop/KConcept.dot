@@ -1,0 +1,17 @@
+digraph KConcept {
+	node [label="\N"];
+	graph [bb="0,0,1074,124"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#ImaginaryUnit_Concept" [label=ImaginaryUnit_Concept, shape=box, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="75,18", width="2.0833", height="0.5"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" [label=Concept, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="483,106", width="0.88889", height="0.5"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Applications_Concept" [label=Applications_Concept, shape=box, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="239,18", width="1.9722", height="0.5"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Operations_Concept" [label=Operations_Concept, shape=box, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="395,18", width="1.8611", height="0.5"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#RealNumberSystem_Concept" [label=RealNumberSystem_Concept, shape=box, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="571,18", width="2.5278", height="0.5"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumber_Concept" [label=ComplexNumber_Concept, shape=box, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="764,18", width="2.3333", height="0.5"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberSystem_Concept" [label=ComplexNumberSystem_Concept, shape=box, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="970,18", width="2.8889", height="0.5"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" -> "http://www.cs.teilar.gr/ontologies/KConcept.owl#ImaginaryUnit_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="s,450.98,99.095 440.99,96.939 372.47,82.161 235.74,52.67 150.18,34.216", lp="321.5,62"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" -> "http://www.cs.teilar.gr/ontologies/KConcept.owl#Applications_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="s,450.85,94.405 441.44,91.011 399.28,75.804 333.99,52.258 289.02,36.039", lp="388.5,62"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" -> "http://www.cs.teilar.gr/ontologies/KConcept.owl#Operations_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="s,464.77,87.766 457.67,80.668 443.46,66.461 426.07,49.066 413.21,36.21", lp="452.5,62"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" -> "http://www.cs.teilar.gr/ontologies/KConcept.owl#RealNumberSystem_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="s,501.23,87.766 508.33,80.668 522.54,66.461 539.93,49.066 552.79,36.21", lp="540.5,62"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" -> "http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumber_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="s,515.23,95.905 525.02,92.84 573.2,77.752 652.45,52.934 706.37,36.049", lp="654.5,62"];
+	"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" -> "http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberSystem_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0", pos="s,515.33,100.16 525.52,98.316 601.89,84.517 764.16,55.194 870.07,36.057", lp="776.5,62"];
+}

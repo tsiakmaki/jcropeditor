@@ -1,0 +1,19 @@
+ImaginaryUnit
+
+In mathematics, the imaginary unit or unit imaginary number allows the real number system R to be extended to the complex number system C, which in turn provides at least one root for every polynomial P(x) (see algebraic closure and fundamental theorem of algebra). The imaginary unit is most commonly denoted by i. The imaginary unit's core property is that i2 = ?1. The term "imaginary" is used because there is no real number having a negative square.
+
+Equivalent Classes
+    - ImaginaryUnit
+
+
+SuperClasses/ Inherited anonymous classes
+    - Thing
+
+
+Disjoint Classess
+    - Nothing
+
+
+Members
+
+

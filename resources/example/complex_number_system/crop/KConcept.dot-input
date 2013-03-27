@@ -1,0 +1,16 @@
+digraph "KConcept" {
+
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#ImaginaryUnit_Concept" [shape=box, label="ImaginaryUnit_Concept", color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"->"http://www.cs.teilar.gr/ontologies/KConcept.owl#ImaginaryUnit_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Applications_Concept" [shape=box, label="Applications_Concept", color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"->"http://www.cs.teilar.gr/ontologies/KConcept.owl#Applications_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Operations_Concept" [shape=box, label="Operations_Concept", color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"->"http://www.cs.teilar.gr/ontologies/KConcept.owl#Operations_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept" [shape=box, label="Concept", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#RealNumberSystem_Concept" [shape=box, label="RealNumberSystem_Concept", color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"->"http://www.cs.teilar.gr/ontologies/KConcept.owl#RealNumberSystem_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumber_Concept" [shape=box, label="ComplexNumber_Concept", color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"->"http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumber_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberSystem_Concept" [shape=box, label="ComplexNumberSystem_Concept", color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+"http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"->"http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberSystem_Concept" [dir=back, label=io, color="0.0,1.0,1.0", fontcolor="0.0,1.0,1.0"]
+}

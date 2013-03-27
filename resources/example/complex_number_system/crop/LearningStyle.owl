@@ -1,0 +1,210 @@
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+
+
+
+Ontology: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl>
+
+
+Annotations: 
+    rdfs:comment "An ontology attempting to capture featurers of learning style, based on established learning style theories.
+ This ontology is based on literature originating with educational and/or cognitive psychology and, in particular, on a number of proposals for learning style models, including Curry's taxonomic attempt (the \"onion model\")."
+
+AnnotationProperty: rdfs:comment
+
+    
+Datatype: xsd:string
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#TutorEvaluation>
+
+    Annotations: 
+        rdfs:comment "Tends to rely on and seek external evaluation to feel reassured on progress made, or get warnings on observed shortcomings."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Participatory>
+
+    Annotations: 
+        rdfs:comment "Prefers to engage in interaction, participate in some sort of collaborative, or just active endeavour."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#AudioVisual>
+
+    Annotations: 
+        rdfs:comment "Tending to prefer audio-visual material for learning"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InformationProcessingStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Persistence>
+
+    Annotations: 
+        rdfs:comment "Persists in his/her efforts to achive the goal (a good performance on the assessment material). Tends to make repeated attempts if original ones fell short of self-imposed objectives."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningAttitudeStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#NavigationIndependent>
+
+    Annotations: 
+        rdfs:comment "Intervenes and modifies navigation sequence, making own choices"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Expository>
+
+    Annotations: 
+        rdfs:comment "Prefers to follow an exposition."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Continuity>
+
+    Annotations: 
+        rdfs:comment "Tends to study continuoysly over extended periods of time. "
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningAttitudeStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle>
+
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+         or <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InformationProcessingStyle>
+         or <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+         or <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningAttitudeStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#NavigationDependent>
+
+    Annotations: 
+        rdfs:comment "Relies on navigation decisions made by the tutor"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Verbal>
+
+    Annotations: 
+        rdfs:comment "Tending to prefer written exposition"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InformationProcessingStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Holist>
+
+    Annotations: 
+        rdfs:comment "Holist, or Global. Tending to prefer getting an overview of the subject before attempting to tackle details."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InformationProcessingStyle>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+
+    Annotations: 
+        rdfs:comment "Learner type designators at this layer are more resistant to change."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Sequential>
+
+    Annotations: 
+        rdfs:comment "Sequential, or Serialist.
+Tending to take things step by step, in a linear manner, in a bottom up approach."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningAttitudeStyle>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Concrete>
+
+    Annotations: 
+        rdfs:comment "Focusing on specific content rather than form, on specific way of representation of this content.
+(Opposite: Abstract)
+The abstract-concrete dimension is present in both Gregorc's and in Kolb's theories of learning types."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#SelfEvaluation>
+
+    Annotations: 
+        rdfs:comment "Relies on his/her meta-cognitive self-assessment skills"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Active>
+
+    Annotations: 
+        rdfs:comment "Learning by testing/ experimenting, tending to do things,'make it happen', rather than pause and contemplate. Directly engages the problem rather than reflect on it.
+(Opposite: Reasoner/Reflective/Thinking)
+Present in both Kolb's and Honey and Mumford's theories. In this ontology we identify 'Active' and Jackson's 'Initiator', despite some difference in the nuances of the two notions."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Abstract>
+
+    Annotations: 
+        rdfs:comment "Tending and able to conceive general form regardless of particular content, internal structure rather than specific ways of representation.
+(Opposite: Concrete).
+The abstract-concrete dimension is present in both Gregorc's and in Kolb's theories of learning types."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#InstructionalPreferencesStyle>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#LearningStyle>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#Reflective>
+
+    Annotations: 
+        rdfs:comment "Reflective, or Thinking, or Theorist. 
+Tending to think through the meaning of the subject, understand its structure and relations to other subjects."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningStyle.owl#CognitiveStyle>
+    
+    

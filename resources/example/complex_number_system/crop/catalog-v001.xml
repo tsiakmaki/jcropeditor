@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=1" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.g/ontologies/KOrder.owl" uri="KOrder.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/Channel.owl" uri="Channel.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl" uri="ConceptGraph.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/Expression.owl" uri="Expression.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/Graph.owl" uri="Graph.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/KConcept.owl" uri="KConcept.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/KObject.owl" uri="KObject.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/KRC.owl" uri="KRC.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LIPInformation.owl" uri="LIPInformation.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LearnerInformation.owl" uri="LearnerInformation.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LearnerModel.owl" uri="LearnerModel.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LearnerTypeUO.owl" uri="LearnerTypeUO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl" uri="LearningDomainParticipant.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl" uri="LearningDomainRole.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LearningObject.owl" uri="LearningObject.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl" uri="LearningObjectMetaData.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/Message.owl" uri="Message.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/Participant.owl" uri="Participant.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/Process.owl" uri="Process.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/Role.owl" uri="Role.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/XGraph.owl" uri="XGraph.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.cs.teilar.gr/ontologies/XModel.owl" uri="XModel.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1361873478715" name="http://www.w3.org/2002/07/owl" uri="Profile.owl"/>
+    </group>
+</catalog>

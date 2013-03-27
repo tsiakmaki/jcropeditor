@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY KOr "http://www.cs.teilar.g/ontologies/KOrder.owl#" >
+    <!ENTITY g "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+    <!ENTITY xmodel "http://www.cs.teilar.gr/ontologies/XModel.owl#" >
+    <!ENTITY KOb "http://www.cs.teilar.gr/ontologies/KObject.owl#" >
+    <!ENTITY cpt "http://www.cs.teilar.gr/ontologies/KConcept.owl#" >
+    <!ENTITY learner "http://www.cs.teilar.gr/ontologies/LearnerModel.owl#" >
+    <!ENTITY LO "http://www.cs.teilar.gr/ontologies/LearningObject.owl#" >
+    <!ENTITY LIP "http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#" >
+    <!ENTITY lom "http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.g/ontologies/KOrder.owl#"
+     xml:base="http://www.cs.teilar.g/ontologies/KOrder.owl"
+     xmlns:KOb="http://www.cs.teilar.gr/ontologies/KObject.owl#"
+     xmlns:LIP="http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#"
+     xmlns:LO="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:learner="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#"
+     xmlns:KOr="http://www.cs.teilar.g/ontologies/KOrder.owl#"
+     xmlns:g="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xmodel="http://www.cs.teilar.gr/ontologies/XModel.owl#"
+     xmlns:cpt="http://www.cs.teilar.gr/ontologies/KConcept.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:lom="http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.g/ontologies/KOrder.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">A KOrder is a Monitor and Mediator type of entity, monitoring the execution of a Learning Object (in use by a Learner) and issueing to the owner of the Learning Object (a Learning Service) reports pertaining to  difficulties in the use of the Learning Object by the Learner. These reports may be used by the owner for an on-the-fly modification of the Learning Object, aiming at better suiting the needs of the Learner.</rdfs:comment>
+        <dc:date rdf:datatype="&xsd;date">January 12, 2011</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated -->
+
+    <owl:ObjectProperty rdf:about="&g;hasAssociated"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasAcceptanceReason -->
+
+    <owl:DatatypeProperty rdf:about="&learner;hasAcceptanceReason">
+        <owl:propertyDisjointWith rdf:resource="&learner;hasRejectionReason"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#hasRejectionReason -->
+
+    <owl:DatatypeProperty rdf:about="&learner;hasRejectionReason"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.g/ontologies/KOrder.owl#KOrder -->
+
+    <owl:Class rdf:about="&KOr;KOrder">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&g;hasAssociated"/>
+                <owl:onClass rdf:resource="&learner;Learner"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&g;hasAssociated"/>
+                <owl:onClass rdf:resource="&KOb;KObject"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A KOrder is a Monitor and Mediator type of entity, monitoring the execution of a Learning Object (in use by a Learner) and issueing to the owner of the Learning Object (a Learning Service) reports pertaining to  difficulties in the use of the Learning Object by the Learner. These reports may be used by the owner for an on-the-fly modification of the Learning Object, aiming at better suiting the needs of the Learner.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Edge -->
+
+    <owl:Class rdf:about="&g;Edge"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Graph -->
+
+    <owl:Class rdf:about="&g;Graph"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Node -->
+
+    <owl:Class rdf:about="&g;Node"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#KObject -->
+
+    <owl:Class rdf:about="&KOb;KObject"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIP -->
+
+    <owl:Class rdf:about="&LIP;LIP"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerInformation.owl#LIPElement -->
+
+    <owl:Class rdf:about="&LIP;LIPElement"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#Learner -->
+
+    <owl:Class rdf:about="&learner;Learner"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject -->
+
+    <owl:Class rdf:about="&LO;LearningObject"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOM -->
+
+    <owl:Class rdf:about="&lom;LOM"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElement -->
+
+    <owl:Class rdf:about="&lom;LOMElement"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElementComponent -->
+
+    <owl:Class rdf:about="&lom;LOMElementComponent"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XModel.owl#ExecutionManager -->
+
+    <owl:Class rdf:about="&xmodel;ExecutionManager"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XModel.owl#ExecutionModel -->
+
+    <owl:Class rdf:about="&xmodel;ExecutionModel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&KOb;xmodeltype">
+        <rdfs:comment rdf:datatype="&xsd;string">Type of the execution model of a (CROP) learning object. At the moment, we distinguish between the following types
+a) rich dialogue (frequent dialogue nodes occur in the execution graph, commenting on student acts, rewarding, giving advice etc)
+b) poor dialogue
+c) depth first (traversing the concept graph in a depth first manner)
+d) breadth first
+e) user defined (the execution model queries the user on his/her preference what to do next)</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

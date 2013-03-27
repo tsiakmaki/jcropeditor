@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/KConcept.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/KConcept.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl">
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">January 11, 2011</dc:date>
+        <dc:creator>Takis Hartonas</dc:creator>
+        <rdfs:comment>In the context of applications one often needs to make use of second order relations. In the intended application of a specification of CROP Learning Objects, Learning Services and Learning Domains, the relation moif interest is that of a concept having another concept as a prerequisite in the learning process. 
+
+The intended usage of this class in engineering CROP Learning Objects is to have generate instancces of the KConcept class for each concept in the Domain ontology of a Learning Object. The first-order relation has-prerequisite on the KConcept class captures then the intended meaning of one concept having others as prerequisites in the learning process.
+
+We systematically use a prefixed &quot;K&quot; (as in &quot;KConcept&quot;), standing for &quot;Knowledge&quot; in mthe naming of the concepts relating to Learning Objects, Learning Services and Learning Domains.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#string -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#collection -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#collection">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Discipline"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#isPrerequisiteOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#hasRecommended -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#hasRecommended">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#isPrerequisiteOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#isPrerequisiteOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+        <rdfs:comment>Knowledge Concept, a unit teaching/ educational objective</rdfs:comment>
+        <rdfs:comment>A knowledge Concept is defined (disambiquated) in a Domain Ontology. 
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Course -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#collection"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+        <rdfs:comment>Set of concepts, considered to be related in their content. For example, a course &quot;Theory of Computation&quot; might consist of the concepts &apos;automata&apos;, &apos;formal languages&apos;, &apos;Turing machines&apos;, &apos;recursive functions&apos;, &apos;unsolvability&apos;, &apos;time complexity&apos;, &apos;space complexity&apos;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Discipline -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Discipline">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#collection"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+        <rdfs:comment>A set of courses, typically leading to some kind of formal certificate, or degree. For example, &quot;Physics&quot;, or &quot;Zoology&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Course"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Discipline"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#hasRecommended"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Ground -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Ground"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#NonGround -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#NonGround"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#AbsoluteValue_Concept -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#AbsoluteValue_Concept">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberDefinition_Concept -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberDefinition_Concept">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberSystem_Concept -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#ComplexNumberSystem_Concept">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Operation_Concept -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#Operation_Concept">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#PropertiesOfConjugates_Concept -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#PropertiesOfConjugates_Concept">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#RealNumberSystem_Concept -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#RealNumberSystem_Concept">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#collection"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/KConcept.owl#hasRecommended"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.3) http://owlapi.sourceforge.net -->
+

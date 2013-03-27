@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Role "http://www.cs.teilar.gr/ontologies/Role.owl#" >
+    <!ENTITY Message "http://www.cs.teilar.gr/ontologies/Message.owl#" >
+    <!ENTITY Channel "http://www.cs.teilar.gr/ontologies/Channel.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY swrla "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#" >
+    <!ENTITY Expression "http://www.cs.teilar.gr/ontologies/Expression.owl#" >
+    <!ENTITY Participant "http://www.cs.teilar.gr/ontologies/Participant.owl#" >
+    <!ENTITY LearnerModel "http://www.cs.teilar.gr/ontologies/learnermodel.owl#" >
+    <!ENTITY LearningObject "http://www.cs.teilar.gr/ontologies/LearningObject.owl#" >
+    <!ENTITY CommunicativeAct "http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#" >
+    <!ENTITY ParticipantProfile "http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#" >
+    <!ENTITY LDRole "http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#" >
+    <!ENTITY sqwrl "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl"
+     xmlns:LearningObject="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xmlns:Participant="http://www.cs.teilar.gr/ontologies/Participant.owl#"
+     xmlns:LDRole="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#"
+     xmlns:ParticipantProfile="http://www.cs.teilar.gr/ontologies/ParticipantProfile.owl#"
+     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+     xmlns:LearnerModel="http://www.cs.teilar.gr/ontologies/learnermodel.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Message="http://www.cs.teilar.gr/ontologies/Message.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:Expression="http://www.cs.teilar.gr/ontologies/Expression.owl#"
+     xmlns:CommunicativeAct="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:Channel="http://www.cs.teilar.gr/ontologies/Channel.owl#"
+     xmlns:Role="http://www.cs.teilar.gr/ontologies/Role.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">In the Participant ontology we extend the Participant ontology of the Role Model with Participants that can be found in a Learning Domain. </rdfs:comment>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/Participant.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/learnermodel.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#hasProfile -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#hasProfile"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy -->
+
+    <owl:ObjectProperty rdf:about="&LearningObject;describedBy"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Participant.owl#playsRole -->
+
+    <owl:ObjectProperty rdf:about="&Participant;playsRole"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Channel.owl#CommunicationChannel -->
+
+    <owl:Class rdf:about="&Channel;CommunicationChannel"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Channel.owl#Location -->
+
+    <owl:Class rdf:about="&Channel;Location"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeAct -->
+
+    <owl:Class rdf:about="&CommunicativeAct;CommunicativeAct"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Atomic_Fact -->
+
+    <owl:Class rdf:about="&Expression;Atomic_Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Complex_Fact -->
+
+    <owl:Class rdf:about="&Expression;Complex_Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Conjoint_Fact -->
+
+    <owl:Class rdf:about="&Expression;Conjoint_Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Existential_Fact -->
+
+    <owl:Class rdf:about="&Expression;Existential_Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Expression -->
+
+    <owl:Class rdf:about="&Expression;Expression"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Fact -->
+
+    <owl:Class rdf:about="&Expression;Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualValue -->
+
+    <owl:Class rdf:about="&Expression;IndividualValue"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualVariable -->
+
+    <owl:Class rdf:about="&Expression;IndividualVariable"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage -->
+
+    <owl:Class rdf:about="&Expression;LogicalLanguage"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator -->
+
+    <owl:Class rdf:about="&Expression;LogicalOperator"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Negated_Fact -->
+
+    <owl:Class rdf:about="&Expression;Negated_Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType -->
+
+    <owl:Class rdf:about="&Expression;ParameterType"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate -->
+
+    <owl:Class rdf:about="&Expression;Predicate"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#PredicateParameter -->
+
+    <owl:Class rdf:about="&Expression;PredicateParameter"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#PropertyFact -->
+
+    <owl:Class rdf:about="&Expression;PropertyFact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Quantified_Fact -->
+
+    <owl:Class rdf:about="&Expression;Quantified_Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#RelationalFact -->
+
+    <owl:Class rdf:about="&Expression;RelationalFact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Universal_Fact -->
+
+    <owl:Class rdf:about="&Expression;Universal_Fact"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Author -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Author">
+        <rdfs:subClassOf rdf:resource="&Participant;Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                <owl:someValuesFrom rdf:resource="&LDRole;Author_Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The Author implements the Author Role.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Facilitator -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Facilitator">
+        <rdfs:subClassOf rdf:resource="&Participant;Service"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                <owl:someValuesFrom rdf:resource="&LDRole;Facilitator_Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The Facilitator implements the Facilitator Role. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Learner -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Learner">
+        <rdfs:subClassOf rdf:resource="&Participant;Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&LDRole;LearnerProfileManager_Role"/>
+                            <rdf:Description rdf:about="&LDRole;Learner_Role"/>
+                            <rdf:Description rdf:about="&LDRole;LearningObjectRequestor_Role"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The Learner implements the Learner Role, the Learning Object Requestor and the Learner Profile Manager (Learner can edit his/her contact information).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#LearningService -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#LearningService">
+        <rdfs:subClassOf rdf:resource="&Participant;Service"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&LDRole;LearningObjectRequestor_Role"/>
+                            <rdf:Description rdf:about="&LDRole;LearningProvider_Role"/>
+                            <rdf:Description rdf:about="&LDRole;Monitoring_Role"/>
+                            <rdf:Description rdf:about="&LDRole;ProfileManager_Role"/>
+                            <rdf:Description rdf:about="&LDRole;Rating_Role"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A Learning Service avails Learning Objects to Learners and other Learning Services.
+
+It implements the Learning Object Requestor Role, Learning Provider Role, the Monitoring Role, the Profile Manager Role (all the Profile Managers), and the Rating_Role.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#LearningServiceCapability -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#LearningServiceCapability"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Monitoring -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Monitoring">
+        <rdfs:subClassOf rdf:resource="&Participant;Service"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                        <owl:someValuesFrom rdf:resource="&LDRole;Monitoring_Role"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                        <owl:allValuesFrom rdf:resource="&LDRole;Monitoring_Role"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Monitoring implements the Monitoring Role.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Rating -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#Rating">
+        <rdfs:subClassOf rdf:resource="&Participant;Service"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                        <owl:someValuesFrom rdf:resource="&LDRole;Rating_Role"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Participant;playsRole"/>
+                        <owl:allValuesFrom rdf:resource="&LDRole;Rating_Role"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Rating Service implements the Rating Role.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#Author_Role -->
+
+    <owl:Class rdf:about="&LDRole;Author_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#Facilitator_Role -->
+
+    <owl:Class rdf:about="&LDRole;Facilitator_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearnerProfileManager_Role -->
+
+    <owl:Class rdf:about="&LDRole;LearnerProfileManager_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#Learner_Role -->
+
+    <owl:Class rdf:about="&LDRole;Learner_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectProfileManager_Role -->
+
+    <owl:Class rdf:about="&LDRole;LearningObjectProfileManager_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningObjectRequestor_Role -->
+
+    <owl:Class rdf:about="&LDRole;LearningObjectRequestor_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#LearningProvider_Role -->
+
+    <owl:Class rdf:about="&LDRole;LearningProvider_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#Monitoring_Role -->
+
+    <owl:Class rdf:about="&LDRole;Monitoring_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ProfileManager_Role -->
+
+    <owl:Class rdf:about="&LDRole;ProfileManager_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#Rating_Role -->
+
+    <owl:Class rdf:about="&LDRole;Rating_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainRole.owl#ServiceProfileManager_Role -->
+
+    <owl:Class rdf:about="&LDRole;ServiceProfileManager_Role"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#Message -->
+
+    <owl:Class rdf:about="&Message;Message"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#MessageName -->
+
+    <owl:Class rdf:about="&Message;MessageName"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Message.owl#OperatorName -->
+
+    <owl:Class rdf:about="&Message;OperatorName"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Participant.owl#Actor -->
+
+    <owl:Class rdf:about="&Participant;Actor"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Participant.owl#Participant -->
+
+    <owl:Class rdf:about="&Participant;Participant"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Participant.owl#Service -->
+
+    <owl:Class rdf:about="&Participant;Service">
+        <rdfs:subClassOf rdf:resource="&Message;OperatorName"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#Behavior -->
+
+    <owl:Class rdf:about="&Role;Behavior"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#Role -->
+
+    <owl:Class rdf:about="&Role;Role"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

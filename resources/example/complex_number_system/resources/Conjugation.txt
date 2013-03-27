@@ -1,0 +1,19 @@
+Conjugation
+
+The complex conjugate of the complex number z = x + yi is defined to be x ? yi. It is denoted \bar{z} or z^*\,. Geometrically, \bar{z} is the "reflection" of z about the real axis. In particular, conjugating twice gives the original complex number: \bar{\bar{z}}=z.
+
+Equivalent Classes
+    - Conjugation
+
+
+SuperClasses/ Inherited anonymous classes
+    - Operations
+
+
+Disjoint Classess
+    - Nothing
+
+
+Members
+
+

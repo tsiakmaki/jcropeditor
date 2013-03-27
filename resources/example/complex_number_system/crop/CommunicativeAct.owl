@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.cs.teilar.gr/ontologies/2005/08/07/XSP.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:xsp="http://www.cs.teilar.gr/ontologies/2005/08/07/XSP.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType">
+        <rdfs:comment rdf:datatype="&xsd;string">The notion of the communicative action is borrowed from the Speech Acts which are used in Agent Communication Languages (FIPA ACL, KQML). 
+
+Instances of this concept are a subset of the defined ones by the FIPA ACL which are thought as appropriate for the description of the Web Services interactions. 
+These instances are: Accept, Fail, Inform, Propose, Query-If, Reject, Request. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Accept -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Accept">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Fail -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Fail">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Inform -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Inform">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Propose -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Propose">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Query-If -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Query-If">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Reject -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Reject">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Request -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#Request">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#CommunicativeActType"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+
