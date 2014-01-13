@@ -1,0 +1,508 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/Expression.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/Expression.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Logical Expression Ontology. 
+This is currently under-developed and only what is absolutely necessary for the Role Model ontology has been included here.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#hasComponentFact -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#hasComponentFact">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#hasOperator -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#hasOperator">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#hasParameterType -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#hasParameterType">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#PredicateParameter"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#hasPredicate -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#hasPredicate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#AtomicFact"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ofLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ofLanguage">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Expression"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ofArity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ofArity">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ofType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ofType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualVariable"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#AtomicFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#AtomicFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ConjointFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ConjointFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasOperator"/>
+                <owl:hasValue rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#AND"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasComponentFact"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ExistentialFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ExistentialFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#QuantifiedFact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasOperator"/>
+                <owl:hasValue rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#EXISTS"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#UniversalFact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Expression -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#Expression"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Fact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ofLanguage"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#SWRL"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#KIF"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualVariable"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The kiind of thing that is either true or false, a Proposition, expressed by a sentence in the logical language.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualValue -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualValue">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#PredicateParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualVariable -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#IndividualVariable">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#PredicateParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#NegatedFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#NegatedFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasOperator"/>
+                <owl:hasValue rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#NOT"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasComponentFact"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ofArity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;positiveInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Instances of this class are predicates, i.e. expressions designating universals (properties or relations). Predicate instances and terms are the building blocks of atomic sentences (facts).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#PredicateParameter -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#PredicateParameter">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasParameterType"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A PredicateParameter is a Term. An  instance of it is either an individual name (a constant) or an individual variable. Terms (PredicateParameters) are assumed to be typed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#PropertyFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#PropertyFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#AtomicFact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasPredicate"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#RelationalFact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#QuantifiedFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#QuantifiedFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#ComplexFact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasComponentFact"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#RelationalFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#RelationalFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#AtomicFact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasPredicate"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#UniversalFact -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#UniversalFact">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#QuantifiedFact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#hasOperator"/>
+                <owl:hasValue rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#FORALL"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#AND -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#AND">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#EXISTS -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#EXISTS">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#FORALL -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#FORALL">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#False -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#False">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#AtomicFact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#KIF -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#KIF">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#NOT -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#NOT">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#OR -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#OR">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#SWRL -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#SWRL">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#True -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#True">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#AtomicFact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Expression.owl#XOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#XOR">
+        <rdf:type rdf:resource="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ConjointFact"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#NegatedFact"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#QuantifiedFact"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#Fact"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#Predicate"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#PredicateParameter"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#Expression"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalLanguage"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#LogicalOperator"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/Expression.owl#ParameterType"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

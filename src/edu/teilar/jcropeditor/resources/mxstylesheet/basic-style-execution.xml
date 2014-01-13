@@ -1,0 +1,142 @@
+<mxStylesheet>
+	<!--  purple theme-->
+	<add as="concept">
+		<add as="shape" value="ellipse"/>
+		<add as="perimeter" value="ellipsePerimeter"/>
+		<add as="opacity" value="20"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="right"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+		
+		<!-- brown -->
+		<!-- add as="fontColor" value="#8d867a"/>
+		<add as="strokeColor" value="#8d867a"/>
+		<add as="fillColor" value="#bcb3a3"/-->
+	</add>
+
+	<add as="group">
+		<add as="shape" value="rectangle"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="center"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="dashed" value="1"/>
+		<add as="opacity" value="20"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+	</add>
+	
+	<add as="collapsedgroup">
+		<add as="shape" value="ellipse"/>
+		<add as="perimeter" value="ellipsePerimeter"/>
+		<add as="opacity" value="20"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="right"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+	</add>	
+	
+	<add as="pargroup">
+		<add as="shape" value="rectangle"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="center"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="dashed" value="1"/>
+		<add as="opacity" value="10"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+	</add>
+	
+	<add as="collapsedpargroup">
+		<add as="shape" value="ellipse"/>
+		<add as="perimeter" value="ellipsePerimeter"/>
+		<add as="opacity" value="10"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="right"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+	</add>	
+	
+	<add as="seqgroup">
+		<add as="shape" value="rectangle"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="center"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="dashed" value="1"/>
+		<add as="opacity" value="10"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+	</add>
+	
+	<add as="collapsedseqgroup">
+		<add as="shape" value="ellipse"/>
+		<add as="perimeter" value="ellipsePerimeter"/>
+		<add as="opacity" value="10"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="right"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+	</add>	
+	
+
+	<add as="learningobj">
+		<add as="shape" value="rectangle"/>
+		<add as="perimeter" value="rectanglePerimeter"/>
+		<add as="opacity" value="50"/>
+		<add as="verticalLabelPosition" value="bottom"/>
+		<add as="labelPosition" value="center"/>
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="fillColor" value="#bea5ae"/>
+	</add>
+
+	<add as="prerequisiteEdge">
+		<add as="shape" value="connector"/>
+		<add as="labelBackgroundColor" value="white"/>
+		<add as="endArrow" value="classic"/>
+		<add as="fontSize" value="10"/>
+		<add as="align" value="center"/>
+		<add as="verticalAlign" value="middle"/>
+		<add as="strokeColor" value="#c7bec1"/>
+		<add as="dashed" value="true"/>
+	</add>
+	
+	<add as="xedge">
+		<add as="shape" value="connector"/>
+		<add as="labelBackgroundColor" value="white"/>
+		<add as="endArrow" value="classic"/>
+		<add as="fontSize" value="10"/>
+		<add as="align" value="center"/>
+		<add as="verticalAlign" value="middle"/>
+		<add as="strokeColor" value="#8e7b82"/>
+		<add as="dashed" value="false"/>
+	</add>
+	
+	
+	
+	<add as="image">
+		<add as="fontColor" value="#8e7b82"/>
+		<add as="shape" value="image"/>
+		<add as="verticalLabelPosition" value="bottom"/>
+		<add as="verticalAlign" value="top"/>
+		<add as="labelPosition" value="center"/>
+	</add>
+	
+	<add as="roundImage" extend="image">
+		<add as="perimeter" value="ellipsePerimeter"/>
+	</add>
+	
+	<add as="rhombusImage" extend="image">
+		<add as="perimeter" value="rhombusPerimeter"/>
+	</add>
+	
+	
+	
+</mxStylesheet>

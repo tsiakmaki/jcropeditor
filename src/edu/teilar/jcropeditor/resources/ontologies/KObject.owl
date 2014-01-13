@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY KRC "http://www.cs.teilar.gr/ontologies/KRC.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY LOM "http://www.cs.teilar.gr/ontologies/LOM.owl#" >
+    <!ENTITY graph "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+    <!ENTITY xmodel "http://www.cs.teilar.gr/ontologies/XModel.owl#" >
+    <!ENTITY kconcept "http://www.cs.teilar.gr/ontologies/KConcept.owl#" >
+    <!ENTITY ConceptGraph "http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#" >
+    <!ENTITY LearningObject "http://www.cs.teilar.gr/ontologies/LearningObject.owl#" >
+    <!ENTITY LearningObjectMetaData "http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/KObject.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/KObject.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:LearningObject="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xmlns:LOM="http://www.cs.teilar.gr/ontologies/LOM.owl#"
+     xmlns:LearningObjectMetaData="http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ConceptGraph="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#"
+     xmlns:graph="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:KRC="http://www.cs.teilar.gr/ontologies/KRC.owl#"
+     xmlns:xmodel="http://www.cs.teilar.gr/ontologies/XModel.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:kconcept="http://www.cs.teilar.gr/ontologies/KConcept.owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl">
+        <dc:date rdf:datatype="&xsd;date">January 12, 2011</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">The kobject ontology specifies the Concept-Resource-Order-Product reference architecture for Learning Objects.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/XModel.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated -->
+
+    <owl:ObjectProperty rdf:about="&graph;hasAssociated"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite -->
+
+    <owl:ObjectProperty rdf:about="&kconcept;hasPrerequisite"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#physicalFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#physicalFormat">
+        <owl:equivalentProperty rdf:resource="&LearningObjectMetaData;format"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#physicalLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#physicalLocation">
+        <owl:equivalentProperty rdf:resource="&LearningObjectMetaData;location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#xmodeltype -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#xmodeltype">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">breadth first</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">depth first</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">poor dialogue</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">rich dialogue</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">user defined</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#format -->
+
+    <rdf:Description rdf:about="&LearningObjectMetaData;format"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#location -->
+
+    <rdf:Description rdf:about="&LearningObjectMetaData;location"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#AssessmentResource -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#AssessmentResource">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#KResource"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#SupportResource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#KObject -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#KObject">
+        <rdfs:subClassOf rdf:resource="&LearningObject;LearningObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&kconcept;hasPrerequisite"/>
+                <owl:someValuesFrom rdf:resource="&kconcept;EducationalObjective"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:onClass rdf:resource="&ConceptGraph;ConceptGraph"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:someValuesFrom rdf:resource="&xmodel;ExecutionModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:onClass rdf:resource="&KRC;KRC"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A KObject (Knowledge Object) is a CROP Learning Object (a Learning Object in the CROP Reference Architecture), a subspecies of a Learning Object. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#KProduct -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#KProduct">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#KObject"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#KResource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#KResource -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#KResource">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#KObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#PhysicalLocation -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#PhysicalLocation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#physicalFormat"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#physicalLocation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#SupportResource -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KObject.owl#SupportResource">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#KResource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject -->
+
+    <owl:Class rdf:about="&LearningObject;LearningObject">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:onClass rdf:resource="&ConceptGraph;ContentOntology"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XModel.owl#ExecutionModel -->
+
+    <owl:Class rdf:about="&xmodel;ExecutionModel">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/KObject.owl#xmodeltype"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">breadth first</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">depth first</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">poor dialogue</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">rich dialogue</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">user defined</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">wave</rdf:first>
+                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

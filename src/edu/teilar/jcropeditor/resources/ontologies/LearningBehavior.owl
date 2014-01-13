@@ -1,0 +1,407 @@
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+
+
+
+Ontology: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl>
+
+
+Annotations: 
+    <http://purl.org/dc/elements/1.1/date> "January 27, 2011"^^xsd:date,
+    <http://purl.org/dc/elements/1.1/creator> "Takis Hartonas",
+    rdfs:comment "An ontology attempting to capture featurers of  behavioral traits of the learner, during leaching interaction with a learning object."
+
+AnnotationProperty: <http://purl.org/dc/elements/1.1/date>
+
+    
+AnnotationProperty: <http://purl.org/dc/elements/1.1/creator>
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+Datatype: xsd:dateTime
+
+    
+Datatype: xsd:string
+
+    
+Datatype: xsd:duration
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#next>
+
+    
+ObjectProperty: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#first>
+
+    
+DataProperty: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#atTime>
+
+    
+DataProperty: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#duration>
+
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportChoiceAction>
+
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewApplicationContextAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewExampleExpositionAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewTechnicalExpositionAction>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ChoiceAction>
+    
+    DisjointWith: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#LearningBehavior>
+
+    Annotations: 
+        rdfs:comment "Observable learner behavior, as it manifests itself during interaction with a Learning Object. 
+
+(1) Choice Actions made (or left to the system): For example, choosing to take a test, choosing an example, choosing a theoretical explanation, choosing what to study next, choosing to let the system make the decision for what to do next
+
+(2) Action Sequences: For example, choosing a theoretical/technical definition or explanation, then choosing one or more example expositions, then choosing to see information on application contexts  (or reverse)
+
+(3) Action Frequency: How often does the learner choose to see examples, or ignores them and chooses to take evaluation tests."
+    
+    SubClassOf: 
+        (<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#atTime> some xsd:dateTime)
+         and (<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#duration> some xsd:duration),
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ActionSequence>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ChoiceAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#InterruptSessionAction>
+
+    Annotations: 
+        rdfs:comment "Interrupt a learning session. Interaction with the same learning object may resume at some future time, or not."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#BacktrackAndReview>
+
+    Annotations: 
+        rdfs:comment "Backtrack in the concept hierarchy and revisit a learning objective already visited. Frequency of such actions may be relevant in deducing needs for memory aids."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportRequestAction>
+
+    Annotations: 
+        rdfs:comment "Request for additional support material (technical explanations, examples, solved problems, illustrations of some kind etc."
+    
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestApplicationContextAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestExampleExpositionAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestTechnicalExpositionAction>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestAction>
+    
+    DisjointWith: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestMultipleChoiceTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentChoiceAction>
+
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeEssayTest>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeMultipleChoiceTest>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeProblemSolvingTest>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeShortAnswerTest>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ChoiceAction>
+    
+    DisjointWith: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestEssayTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewTechnicalExpositionAction>
+
+    Annotations: 
+        rdfs:comment "View a technical (theoretical) explanation of the concept under study."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestApplicationContextAction>
+
+    Annotations: 
+        rdfs:comment "Request for a presentation or analysis pertaining to the actual or potential applications of the material under study."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeEssayTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeMultipleChoiceTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ChoiceAction>
+
+    Annotations: 
+        rdfs:comment "Choice for some support or assessment teaching material."
+    
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentChoiceAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportChoiceAction>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#LearningBehavior>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeProblemSolvingTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewExampleExpositionAction>
+
+    Annotations: 
+        rdfs:comment "View an example, an illustration, a solved problem."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestExampleExpositionAction>
+
+    Annotations: 
+        rdfs:comment "Request for an example, a solved problem, and illustration of some kind etc"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipExample>
+
+    Annotations: 
+        rdfs:comment "(while studying a concept) Skip (some) example material"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAhead>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestShortAnswerTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SuspendSessionAction>
+
+    Annotations: 
+        rdfs:comment "Pause studying, Suspend the current session."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAssessment>
+
+    Annotations: 
+        rdfs:comment "(while studying a concept) Skip the (or some) assessment material."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAhead>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#IgnorePrerequisite>
+
+    Annotations: 
+        rdfs:comment "Skip ahead and choose to study a concept though not all of its prerequisites have been studied."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAhead>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentRequestAction>
+
+    Annotations: 
+        rdfs:comment "Request for additional assessment material"
+    
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestEssayTest>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestMultipleChoiceTest>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestProblemSolvingTest>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestShortAnswerTest>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestAction>
+    
+    DisjointWith: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ResumeSessionAction>
+
+    Annotations: 
+        rdfs:comment "Resume a suspended session. Session suspension time may be informative as to the student's committment to continuous studying of lengthy material."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestAction>
+
+    Annotations: 
+        rdfs:comment "A request submitted by the student, during interaction with a learning object and through a dialogue system. Such a request takes place when the available material already packaged for student use appears to be insufficient for the student, who then requests for additional material."
+    
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentRequestAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportRequestAction>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#LearningBehavior>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewApplicationContextAction>
+
+    Annotations: 
+        rdfs:comment "View a presentation on the actual or possible applications of the currently studied material."
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestTechnicalExpositionAction>
+
+    Annotations: 
+        rdfs:comment "Request for a technical definition and/or explanation, a definition etc"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SupportRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeShortAnswerTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentChoiceAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+
+    Annotations: 
+        rdfs:comment "Default Navigation of the concept graph is defined by the Execution model. The student makes decisions and actions that may simply carry out the predefined sequence, or not. The discrepancy between predefined and self-determined navigation may be informative as to the student style and possible adaptation response."
+    
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#BacktrackAndReview>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#InterruptSessionAction>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAhead>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SuspendSessionAction>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#LearningBehavior>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestProblemSolvingTest>
+
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#AssessmentRequestAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipSupportMaterial>
+
+    Annotations: 
+        rdfs:comment "(while studying a concept) Skip (some) support material"
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAhead>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAhead>
+
+    EquivalentTo: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#IgnorePrerequisite>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAssessment>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipExample>
+         or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipSupportMaterial>
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+    
+    
+Class: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ActionSequence>
+
+    Annotations: 
+        rdfs:comment "Sequences of actions, intended to capture repeated action patterns."
+    
+    EquivalentTo: 
+        (<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#first> some 
+            (<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ChoiceAction>
+             or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>
+             or <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestAction>))
+         and (<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#next> some <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ActionSequence>)
+    
+    SubClassOf: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#LearningBehavior>
+    
+    
+Individual: <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#nil>
+
+    Annotations: 
+        rdfs:comment "empty sequence"
+    
+    Types: 
+        <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ActionSequence>
+    
+    
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#BacktrackAndReview>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#InterruptSessionAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ResumeSessionAction>
+
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#IgnorePrerequisite>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAssessment>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipExample>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipSupportMaterial>
+
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ActionSequence>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ChoiceAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#NavigationAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestAction>
+
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#BacktrackAndReview>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#InterruptSessionAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SkipAhead>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#SuspendSessionAction>
+
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewApplicationContextAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewExampleExpositionAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#ViewTechnicalExpositionAction>
+
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestEssayTest>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestMultipleChoiceTest>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestProblemSolvingTest>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestShortAnswerTest>
+
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeEssayTest>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeMultipleChoiceTest>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeProblemSolvingTest>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#TakeShortAnswerTest>
+
+DisjointClasses: 
+    <http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestApplicationContextAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestExampleExpositionAction>,<http://www.cs.teilar.gr/ontologies/LearningBehavior.owl#RequestTechnicalExpositionAction>
+

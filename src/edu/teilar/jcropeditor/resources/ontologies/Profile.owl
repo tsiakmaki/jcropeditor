@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY LOM "http://www.cs.teilar.gr/ontologies/LOM.owl#" >
+    <!ENTITY Graph "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+    <!ENTITY Profile "http://www.cs.teilar.gr/ontologies/Profile.owl#" >
+    <!ENTITY KConcept "http://www.cs.teilar.gr/ontologies/KConcept.owl#" >
+    <!ENTITY LearnerModel "http://www.cs.teilar.gr/ontologies/LearnerModel.owl#" >
+    <!ENTITY LearningObject "http://www.cs.teilar.gr/ontologies/LearningObject.owl#" >
+    <!ENTITY LearningDomainParticipant "http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:KConcept="http://www.cs.teilar.gr/ontologies/KConcept.owl#"
+     xmlns:LearningObject="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xmlns:LOM="http://www.cs.teilar.gr/ontologies/LOM.owl#"
+     xmlns:Graph="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:LearnerModel="http://www.cs.teilar.gr/ontologies/LearnerModel.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Profile="http://www.cs.teilar.gr/ontologies/Profile.owl#"
+     xmlns:LearningDomainParticipant="http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#">
+    <Ontology rdf:about="http://www.cs.teilar.gr/ontologies/Profile.owl">
+        <rdfs:comment>the general notion of the profile is to advertise en entity. 
+a learner has a learner model that holds the educational concepts that he/she aquires. 
+a learning service has learning capabilities, that eventually map to learnign objects.
+a learning object has a profile, i.e a group of characterists that honors.
+</rdfs:comment>
+        <imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearnerModel.owl"/>
+        <imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated -->
+
+    <ObjectProperty rdf:about="&Graph;hasAssociated"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite -->
+
+    <ObjectProperty rdf:about="&KConcept;hasPrerequisite"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Node -->
+
+    <Class rdf:about="&Graph;Node">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#KConcept -->
+
+    <Class rdf:about="&KConcept;KConcept"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#LOM -->
+
+    <Class rdf:about="&LOM;LOM">
+        <rdfs:subClassOf rdf:resource="&Profile;Profile"/>
+    </Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearnerModel.owl#LearnerModelGraph -->
+
+    <rdf:Description rdf:about="&LearnerModel;LearnerModelGraph">
+        <rdfs:subClassOf rdf:resource="&Profile;Profile"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningDomainParticipant.owl#LearningService -->
+
+    <Class rdf:about="&LearningDomainParticipant;LearningService"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Profile.owl#LearningServiceCapability -->
+
+    <Class rdf:about="&Profile;LearningServiceCapability">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&KConcept;hasPrerequisite"/>
+                <onClass rdf:resource="&KConcept;KConcept"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</minQualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&LearningObject;hasTargetConcept"/>
+                <onClass rdf:resource="&KConcept;KConcept"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&Graph;hasAssociated"/>
+                <someValuesFrom rdf:resource="&LOM;LOM"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A Learning Service registers its Profile in the Learning Domain. A Service Profile  consists of Capability instances.
+
+Each Capability instance has a  Target Concept and it  may have one or more prerequisite concepts.
+
+A capability (to teach a concept) can be exercised by possibly more than one learning objects owned by ther service. Hence each capability instance has associated to it some LOM instances (metadata descriptions of learning objects).</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Profile.owl#LearningServiceProfile -->
+
+    <Class rdf:about="&Profile;LearningServiceProfile">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="&Graph;hasAssociated"/>
+                        <someValuesFrom rdf:resource="&Profile;LearningServiceCapability"/>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&Graph;hasAssociated"/>
+                        <allValuesFrom rdf:resource="&Profile;LearningServiceCapability"/>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&LearningObject;describes"/>
+                        <onClass rdf:resource="&LearningDomainParticipant;LearningService"/>
+                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Profile;Profile"/>
+    </Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Profile.owl#Profile -->
+
+    <Class rdf:about="&Profile;Profile">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>the general notion of the profile is to advertise en entity. 
+a learner has a learner model that holds the educational concepts that he/she aquires. 
+a learning service has learning capabilities, that eventually map to learnign objects.
+a learning object has a profile, i.e a group of characterists that honors.
+</rdfs:comment>
+    </Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net -->
+

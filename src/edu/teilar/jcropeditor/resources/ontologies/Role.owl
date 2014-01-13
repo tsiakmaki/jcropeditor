@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY Message "http://www.cs.teilar.gr/ontologies/Message.owl#" >
+    <!ENTITY process "http://www.cs.teilar.gr/ontologies/Process.owl#" >
+    <!ENTITY Channel "http://www.cs.teilar.gr/ontologies/Channel.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Expression "http://www.cs.teilar.gr/ontologies/Expression.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.cs.teilar.gr/ontologies/2005/08/07/XSP.owl#" >
+    <!ENTITY CommunicativeAct "http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/Role.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/Role.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Message="http://www.cs.teilar.gr/ontologies/Message.owl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:CommunicativeAct="http://www.cs.teilar.gr/ontologies/CommunicativeAct.owl#"
+     xmlns:Expression="http://www.cs.teilar.gr/ontologies/Expression.owl#"
+     xmlns:xsp="http://www.cs.teilar.gr/ontologies/2005/08/07/XSP.owl#"
+     xmlns:process="http://www.cs.teilar.gr/ontologies/Process.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:Channel="http://www.cs.teilar.gr/ontologies/Channel.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl">
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">This is the proposed Upper Role Model Ontology. To get specific role models the user needs to 
+(a) subclass the Role class to get specific role types, e.g. Buyer, Seller, Shipper etc
+(b) determine the peer relationship between roles
+(c) determine the Concepts specific to the intended role model, e.g. &quot;Publisher&quot;, &quot;PublicationYear&quot;, &quot;NumberOfPages&quot; etc (subclassing &quot;RoleConcepts&quot;)
+(d1) determine the kinds of messages that can be exchanged, using instances of the MessageName class (specific to the intended Role Model) as names of messages
+(d2) determine also the parameters of the types of messages that can be exchanged 
+(e) Determine the InteractionProcesses, Exchanges and Interactions, specific to the Role
+(f) Determine pre-conditions/effects and inputs/outputs for Interaction Processes</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#hasBehavior -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#hasBehavior">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Behavior"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Role"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasPeer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#hasInteractionBehavior -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#hasInteractionBehavior">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#InteractiveBehavior"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Role"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasBehavior"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasLocalBehavior"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#hasLocalBehavior -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#hasLocalBehavior">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#LocalBehavior"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Role"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasBehavior"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#hasPeer -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#hasPeer">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Role"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Role"/>
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasPeer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#Behavior -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#Behavior">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Role"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A Behavior is a type of functionality that a Role can implement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#InteractiveBehavior -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#InteractiveBehavior">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Behavior"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#LocalBehavior"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Interactive Behavior is a funtionality that requires the interaction of two Roles (the sender and the recipient).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#LocalBehavior -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#LocalBehavior">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Behavior"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The local behavior is a functionality that is executed by a Role, and does not involve interactions with another Role.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Role.owl#Role -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/Role.owl#Role">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasBehavior"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Behavior"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasPeer"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasLocalBehavior"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#LocalBehavior"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#hasInteractionBehavior"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/Role.owl#InteractiveBehavior"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A Role is a set of behaviors, ie local (internal) processes and  interaction (external) processes with preconditions -conditions that need to be true in order the process to be executed- and effects -they produce a change in the world. 
+
+During the external interaction, two Roles interact with each other (also called peers) over Exchanges. </rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

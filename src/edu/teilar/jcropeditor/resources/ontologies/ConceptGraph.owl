@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Graph "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+    <!ENTITY KConcept "http://www.cs.teilar.gr/ontologies/KConcept.owl#" >
+    <!ENTITY DomainOntology "http://www.cs.teilar.gr/ontologies/DomainOntology.owl#" >
+    <!ENTITY ontologies "http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#http://www.cs.teilar.gr/ontologies/" >
+    <!ENTITY ContentOntologies "http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#/home/maria/LearningObjects/kobject/ContentOntologies/" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ContentOntologies="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#/home/maria/LearningObjects/kobject/ContentOntologies/"
+     xmlns:ontologies="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#http://www.cs.teilar.gr/ontologies/"
+     xmlns:DomainOntology="http://www.cs.teilar.gr/ontologies/DomainOntology.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:KConcept="http://www.cs.teilar.gr/ontologies/KConcept.owl#"
+     xmlns:Graph="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl">
+        <dc:date rdf:datatype="&xsd;date">January 11, 2011</dc:date>
+        <dc:creator>Takis Hartonas</dc:creator>
+        <rdfs:comment>A Concept Graph (of some Learning Object or Learning Domain) is a structured graph where the associated entities to each node of the graph are KConcept instances.
+
+The edges of the concept graph are intended to capture the &quot;hasPrerequisite&quot; relation on KConcept instances.
+
+Specifying the Concept Graph of a Learning Object is the second major step in constructing a Learning Object. To construct the concept graph, we follow the steps below:
+1) Given the Domain Ontology (constructed at the first step), generate the KConcept Ontology of the Learning Object. This involves (a) creating an instance of the KConcept class foe each concept in the Domain Ontology and (b) specifying the hasPrerequisite relation on the KConcept class (specifying what KConcept instances have what other KConcept instances as their prerequisites).
+2) The above generated KConcept ontology implicitly defines a graph, with nodes the KConcept instances and edges determined by the hasPrerequisite relation. The Concept graph is a subgraph of this graph. Specifically, the creator of the Learning Object needs to decide what concepts will be explicitly taught by the Learning Objects and what concepts then will be considered as prerequisites (ones that the student needs to know in order to successfully use the Learning Object). The subgraph of the KConcept graph with nodes corresponding only to the taught concepts is the Concept Graph of the Learning Object.
+
+The Concept Graph of a Learning Object is a subgraph of the Concept Graph of the Learning Domain whithin which the Learning Object is used.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/Graph.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral -->
+
+    <rdfs:Datatype rdf:about="&rdf;PlainLiteral"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#string -->
+
+    <rdfs:Datatype rdf:about="&xsd;string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#definedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#definedBy">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ContentOntology"/>
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#defines"/>
+        <rdfs:domain rdf:resource="&KConcept;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#defines -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#defines">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ContentOntology"/>
+        <rdfs:range rdf:resource="&KConcept;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#hasSubOntology -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#hasSubOntology">
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#isSubOntologyOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#isSubOntologyOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#isSubOntologyOf"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/DomainOntology.owl#definesConcept -->
+
+    <owl:ObjectProperty rdf:about="&DomainOntology;definesConcept"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#fromNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;fromNode"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasAssociated">
+        <owl:inverseOf rdf:resource="&Graph;isAssociatedOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasEdge -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasEdge"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasLeafNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasLeafNode">
+        <rdfs:subPropertyOf rdf:resource="&Graph;hasNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasNode"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasTopNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasTopNode">
+        <rdfs:subPropertyOf rdf:resource="&Graph;hasNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isAssociatedOf -->
+
+    <owl:ObjectProperty rdf:about="&Graph;isAssociatedOf"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isSubGraphOf -->
+
+    <owl:ObjectProperty rdf:about="&Graph;isSubGraphOf"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#toNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;toNode"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#hasPrerequisite -->
+
+    <owl:ObjectProperty rdf:about="&KConcept;hasPrerequisite"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#hasType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#hasType">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first>recommended</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first>required</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraph -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraph">
+        <rdfs:subClassOf rdf:resource="&Graph;Graph"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasTopNode"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraphNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasLeafNode"/>
+                <owl:allValuesFrom rdf:resource="&Graph;LeafNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasNode"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraphNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A Concept Graph (of some Learning Object or Learning Domain) is a structured graph where the associated entities to each node of the graph are KConcept instances.
+
+The edges of the concept graph are intended to capture the &quot;hasPrerequisite&quot; relation on KConcept instances.
+
+Specifying the Concept Graph of a Learning Object is the second major step in constructing a Learning Object. To construct the concept graph, we follow the steps below:
+1) Given the Domain Ontology (constructed at the first step), generate the KConcept Ontology of the Learning Object. This involves (a) creating an instance of the KConcept class foe each concept in the Domain Ontology and (b) specifying the hasPrerequisite relation on the KConcept class (specifying what KConcept instances have what other KConcept instances as their prerequisites).
+2) The above generated KConcept ontology implicitly defines a graph, with nodes the KConcept instances and edges determined by the hasPrerequisite relation. The Concept graph is a subgraph of this graph. Specifically, the creator of the Learning Object needs to decide what concepts will be explicitly taught by the Learning Objects and what concepts then will be considered as prerequisites (ones that the student needs to know in order to successfully use the Learning Object). The subgraph of the KConcept graph with nodes corresponding only to the taught concepts is the Concept Graph of the Learning Object.
+
+The Concept Graph of a Learning Object is a subgraph of the Concept Graph of the Learning Domain whithin which the Learning Object is used.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraphNode -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraphNode">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Node"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Graph;hasAssociated"/>
+                        <owl:onClass rdf:resource="&KConcept;Concept"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Graph;Node"/>
+        <rdfs:comment>A Concept Graph Node is defined as the kind of Node that has exactly one thing associated to it, which is a KConcept instance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ContentOntology -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ContentOntology">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#isSubOntologyOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#DomainOntology"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#defines"/>
+                <owl:someValuesFrom rdf:resource="&KConcept;Concept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#DomainOntology -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#DomainOntology">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#hasSubOntology"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ContentOntology"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Edge -->
+
+    <owl:Class rdf:about="&Graph;Edge"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Graph -->
+
+    <owl:Class rdf:about="&Graph;Graph"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#LeafNode -->
+
+    <owl:Class rdf:about="&Graph;LeafNode"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Node -->
+
+    <owl:Class rdf:about="&Graph;Node"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#TopNode -->
+
+    <owl:Class rdf:about="&Graph;TopNode"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept -->
+
+    <owl:Class rdf:about="&KConcept;Concept"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective -->
+
+    <owl:Class rdf:about="&KConcept;EducationalObjective">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#definedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ContentOntology"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

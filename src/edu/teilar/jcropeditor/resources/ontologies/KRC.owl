@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY graph "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+    <!ENTITY KObject "http://www.cs.teilar.gr/ontologies/KObject.owl#" >
+    <!ENTITY conceptgraph "http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#" >
+    <!ENTITY LearningObject "http://www.cs.teilar.gr/ontologies/LearningObject.owl#" >
+    <!ENTITY lom "http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#" >
+    <!ENTITY ContentOntologies "http://www.cs.teilar.gr/ontologies/KRC.owl#/home/maria/LearningObjects/kobject/ContentOntologies/" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/KRC.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/KRC.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:LearningObject="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xmlns:lom="http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#"
+     xmlns:ContentOntologies="http://www.cs.teilar.gr/ontologies/KRC.owl#/home/maria/LearningObjects/kobject/ContentOntologies/"
+     xmlns:conceptgraph="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#"
+     xmlns:KObject="http://www.cs.teilar.gr/ontologies/KObject.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:graph="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/KRC.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">Constructing the KRC (Knowledge Requirements Chart) of a CROP Learning Object is the third major step in the construction of the object.
+
+To construct the KRC, one copies the Concept Graph and associates Learning Objects to its nodes. Each concept graph node has an associated KConcept (the concept to be taught) and the associated Learning Objects need to chosen so that (a) they target (teach) the target concept (KConcept instance) of the node
+(b) any prerequisite concepts of the associated Learning Object are either  amongst the prerequisites of the CROP Learning Object under construction, or they must be previously taught by the CROP Learning Object under construction (they must be the concepts associated to predecessor nodes of the KRC).</rdfs:comment>
+        <dc:date rdf:datatype="&xsd;date">January 11, 2011</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated -->
+
+    <owl:ObjectProperty rdf:about="&graph;hasAssociated"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasNode -->
+
+    <owl:ObjectProperty rdf:about="&graph;hasNode"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraph -->
+
+    <owl:Class rdf:about="&conceptgraph;ConceptGraph">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/KRC.owl#KRC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraphNode -->
+
+    <owl:Class rdf:about="&conceptgraph;ConceptGraphNode">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/KRC.owl#KRCNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Edge -->
+
+    <owl:Class rdf:about="&graph;Edge">
+        <owl:disjointWith rdf:resource="&LearningObject;LearningObject"/>
+        <owl:disjointWith rdf:resource="&lom;LOM"/>
+        <owl:disjointWith rdf:resource="&lom;LOMElement"/>
+        <owl:disjointWith rdf:resource="&lom;LOMElementComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Graph -->
+
+    <owl:Class rdf:about="&graph;Graph">
+        <owl:disjointWith rdf:resource="&LearningObject;LearningObject"/>
+        <owl:disjointWith rdf:resource="&lom;LOM"/>
+        <owl:disjointWith rdf:resource="&lom;LOMElement"/>
+        <owl:disjointWith rdf:resource="&lom;LOMElementComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Node -->
+
+    <owl:Class rdf:about="&graph;Node">
+        <owl:disjointWith rdf:resource="&LearningObject;LearningObject"/>
+        <owl:disjointWith rdf:resource="&lom;LOM"/>
+        <owl:disjointWith rdf:resource="&lom;LOMElement"/>
+        <owl:disjointWith rdf:resource="&lom;LOMElementComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KObject.owl#PhysicalLocation -->
+
+    <owl:Class rdf:about="&KObject;PhysicalLocation"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KRC.owl#KRC -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KRC.owl#KRC">
+        <rdfs:subClassOf rdf:resource="&graph;Graph"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasTopNode"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/KRC.owl#KRCNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasLeafNode"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/KRC.owl#KRCNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasNode"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/KRC.owl#KRCNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">To construct the KRC, one copies the Concept Graph and associates Learning Objects to its nodes. Each concept graph node has an associated KConcept (the concept to be taught) and the associated Learning Objects need to chosen so that (a) they target (teach) the target concept (KConcept instance) of the node
+(b) any prerequisite concepts of the associated Learning Object are either  amongst the prerequisites of the CROP Learning Object under construction, or they must be previously taught by the CROP Learning Object under construction (they must be the concepts associated to predecessor nodes of the KRC).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KRC.owl#KRCNode -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/KRC.owl#KRCNode">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&graph;Node"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&KObject;PhysicalLocation"/>
+                                    <rdf:Description rdf:about="&LearningObject;LearningObject"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&conceptgraph;ConceptGraphNode"/>
+                                    <rdf:Description rdf:about="&KObject;PhysicalLocation"/>
+                                    <rdf:Description rdf:about="&LearningObject;LearningObject"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                        <owl:onClass rdf:resource="&conceptgraph;ConceptGraphNode"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&graph;Node"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A KRCNode can be thought of as a pair of (a) a KConcept and (b) a Learning Object List. 
+
+To construct the KRC, one copies the Concept Graph and associates Learning Objects to its nodes (the KRCNodes). Each concept graph node has an associated KConcept (the concept to be taught) and the associated Learning Objects need to chosen so that (a) they target (teach) the target concept (KConcept instance) of the node
+(b) any prerequisite concepts of the associated Learning Object are either  amongst the prerequisites of the CROP Learning Object under construction, or they must be previously taught by the CROP Learning Object under construction (they must be the concepts associated to predecessor nodes of the KRC).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject -->
+
+    <owl:Class rdf:about="&LearningObject;LearningObject"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOM -->
+
+    <owl:Class rdf:about="&lom;LOM"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElement -->
+
+    <owl:Class rdf:about="&lom;LOMElement"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElementComponent -->
+
+    <owl:Class rdf:about="&lom;LOMElementComponent"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

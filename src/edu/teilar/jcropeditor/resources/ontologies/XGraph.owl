@@ -1,0 +1,382 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY krc "http://www.cs.teilar.gr/ontologies/KRC.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY graph "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+    <!ENTITY KObject "http://www.cs.teilar.gr/ontologies/KObject.owl#" >
+    <!ENTITY KConcept "http://www.cs.teilar.gr/ontologies/KConcept.owl#" >
+    <!ENTITY conceptgraph "http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#" >
+    <!ENTITY LearningObject "http://www.cs.teilar.gr/ontologies/LearningObject.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/XGraph.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/XGraph.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:LearningObject="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xmlns:krc="http://www.cs.teilar.gr/ontologies/KRC.owl#"
+     xmlns:conceptgraph="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#"
+     xmlns:KObject="http://www.cs.teilar.gr/ontologies/KObject.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:KConcept="http://www.cs.teilar.gr/ontologies/KConcept.owl#"
+     xmlns:graph="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl">
+        <dc:date rdf:datatype="&xsd;date">January 11, 2011</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">The fourth major step in the construction of a CROP Learning Object is the construction of an XGraph (Execution Graph). Multiple XGraphs may be defined, for the same Learning Objects, corresponding to different ways to sequence the teaching material.
+
+The XGraph is built on top of the KRC. It does not contain the KRC as a subgraph and there is no 1-1 correspondance between the KRC Nodes and Edges and the XGraph nodes and edges.
+
+The XGraph consists of three kinds of nodes:
+(a) Dialogue nodes
+(b) Control nodes and
+(c) LearningAct nodes
+
+Every KRCNode is exploded to an XGraph with a single leaf and a single top node. This means that the unordered LearningObject list associated to the KRCNode is given a graph structure, capturing precedence in execution. Furthermore, Dialogue and ControlNodes may be inserted at points specified by the creator of the CROP Learning Object under construction. 
+
+The XGraphs obtained by exploding KRCodes are subgraphs of the XGraph constructed for the entire KRC. 
+
+The leaf and top nodes of the XGraphs obtained by exploding KRCNodes are linked by edges iff there were edges in the KRC graph linking the corresponding KRCNodes.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/KRC.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasAssociated -->
+
+    <owl:ObjectProperty rdf:about="&graph;hasAssociated"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasNode -->
+
+    <owl:ObjectProperty rdf:about="&graph;hasNode"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isSubGraphOf -->
+
+    <owl:ObjectProperty rdf:about="&graph;isSubGraphOf">
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#hasSubgraph"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#hasSubgraph -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#hasSubgraph"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#hasExplanationParagraph -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#hasExplanationParagraph">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#hasThreshold -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#hasThreshold">
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraph -->
+
+    <owl:Class rdf:about="&conceptgraph;ConceptGraph"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#ConceptGraphNode -->
+
+    <owl:Class rdf:about="&conceptgraph;ConceptGraphNode">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Graph -->
+
+    <owl:Class rdf:about="&graph;Graph"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Group -->
+
+    <rdf:Description rdf:about="&graph;Group">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                <owl:someValuesFrom rdf:resource="&krc;KRCNode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Node -->
+
+    <owl:Class rdf:about="&graph;Node"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KRC.owl#KRC -->
+
+    <owl:Class rdf:about="&krc;KRC"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KRC.owl#KRCNode -->
+
+    <owl:Class rdf:about="&krc;KRCNode">
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject -->
+
+    <owl:Class rdf:about="&LearningObject;LearningObject"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#ControlNode -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#ControlNode">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#DialogueNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#DialogueNode -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#DialogueNode">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#LearningActNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#LearningActNode -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#LearningActNode">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                                <owl:allValuesFrom rdf:resource="&KObject;PhysicalLocation"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                                <owl:allValuesFrom rdf:resource="&LearningObject;LearningObject"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                                <owl:onClass rdf:resource="&KObject;PhysicalLocation"/>
+                                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&graph;hasAssociated"/>
+                                <owl:onClass rdf:resource="&LearningObject;LearningObject"/>
+                                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#ParGroup -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#ParGroup">
+        <rdfs:subClassOf rdf:resource="&graph;Group"/>
+        <rdfs:comment>A ParGroupNode (Parallel Group Node) is a set of nodes such that all must be traversed, in whatever order. As a graph it is represented by the complete graph on the set of nodes in the ParGroup. It may be inserted as a subgraph of another XGraph by links (edges) to and from any two of its nodes (one for entering the ParGroup and one for leaving it).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#SeqGroup -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#SeqGroup">
+        <rdfs:subClassOf rdf:resource="&graph;Group"/>
+        <rdfs:comment>A SeqGroupNode (Sequential Group Node) is a set of XNodes, linked sequentially by edges. Therefore, a SeqGroupNode has a unique leaf node and a unique top node, by means of which it can be inserted in a larger XGraph.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#XGraph -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#XGraph">
+        <rdfs:subClassOf rdf:resource="&graph;Graph"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasNode"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#ParGroup"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#SeqGroup"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasLeafNode"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#ParGroup"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#SeqGroup"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&graph;hasTopNode"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#ParGroup"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#SeqGroup"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The XGraph is built on top of the KRC. It does not contain the KRC as a subgraph and there is no 1-1 correspondance between the KRC Nodes and Edges and the XGraph nodes and edges.
+
+The XGraph consists of three kinds of nodes:
+(a) Dialogue nodes
+(b) Control nodes and
+(c) LearningAct nodes
+
+Every KRCNode is exploded to an XGraph with a single leaf and a single top node. This means that the unordered LearningObject list associated to the KRCNode is given a graph structure, capturing precedence in execution. Furthermore, Dialogue and ControlNodes may be inserted at points specified by the creator of the CROP Learning Object under construction. 
+
+The XGraphs obtained by exploding KRCodes are subgraphs of the XGraph constructed for the entire KRC. 
+
+The leaf and top nodes of the XGraphs obtained by exploding KRCNodes are linked by edges iff there were edges in the KRC graph linking the corresponding KRCNodes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode">
+        <rdfs:subClassOf rdf:resource="&graph;Node"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&conceptgraph;ConceptGraphNode"/>
+            <rdf:Description rdf:about="&krc;KRCNode"/>
+            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/XGraph.owl#XNode"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

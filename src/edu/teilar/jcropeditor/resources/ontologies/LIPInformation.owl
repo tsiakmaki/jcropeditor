@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LIPInformation.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     ontologyIRI="http://www.cs.teilar.gr/ontologies/LIPInformation.owl">
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Declaration>
+        <Class IRI="#Accessibility"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Affiliation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Competency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Goal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Identification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Interest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LIP"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LIPElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LIPElementComponent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Qcl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Relationship"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SecurityKey"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Transcript"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasElement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasElementComponent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isElementComponentOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isElementOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPartOfValueParticion"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#LIPElement"/>
+        <ObjectUnionOf>
+            <Class IRI="#Accessibility"/>
+            <Class IRI="#Activity"/>
+            <Class IRI="#Affiliation"/>
+            <Class IRI="#Competency"/>
+            <Class IRI="#Goal"/>
+            <Class IRI="#Identification"/>
+            <Class IRI="#Interest"/>
+            <Class IRI="#Qcl"/>
+            <Class IRI="#Relationship"/>
+            <Class IRI="#SecurityKey"/>
+            <Class IRI="#Transcript"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Accessibility"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Activity"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Affiliation"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Competency"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Goal"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Identification"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Interest"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Qcl"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Relationship"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SecurityKey"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Transcript"/>
+        <Class IRI="#LIPElement"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#LIP"/>
+        <Class IRI="#LIPElement"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#LIPElement"/>
+        <Class IRI="#LIPElementComponent"/>
+    </DisjointClasses>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isElementOf"/>
+        <ObjectProperty IRI="#hasElement"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasElementComponent"/>
+        <ObjectProperty IRI="#isElementComponentOf"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasElement"/>
+        <Class IRI="#LIP"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasElement"/>
+        <Class IRI="#LIPElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasElementComponent"/>
+        <Class IRI="#LIPElementComponent"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LIP</IRI>
+        <Literal datatypeIRI="&xsd;string">IMS Learner Information Package</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

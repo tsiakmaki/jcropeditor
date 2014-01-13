@@ -1,0 +1,46 @@
+<mxStylesheet>
+	<!-- blue theme -->
+	<add as="concept">
+		<add as="shape" value="ellipse"/>
+		<add as="perimeter" value="ellipsePerimeter"/>
+		<add as="opacity" value="50"/>
+		<add as="verticalLabelPosition" value="top"/>
+		<add as="labelPosition" value="right"/>
+		<add as="fontColor" value="#6482b9"/>
+		<add as="strokeColor" value="#6482b9"/>
+		<add as="fillColor" value="#b2c1dc"/>
+	</add>
+	<add as="prerequisiteEdge">
+		<add as="shape" value="connector"/>
+		<add as="labelBackgroundColor" value="white"/>
+		<add as="endArrow" value="classic"/>
+		<add as="fontSize" value="10"/>
+		<add as="align" value="center"/>
+		<add as="verticalAlign" value="middle"/>
+		<add as="strokeColor" value="#6482b9"/>
+		<add as="dashed" value="false"/>
+	</add>
+	<add as="recommendedEdge">
+		<add as="shape" value="connector"/>
+		<add as="labelBackgroundColor" value="white"/>
+		<add as="endArrow" value="classic"/>
+		<add as="fontSize" value="10"/>
+		<add as="align" value="center"/>
+		<add as="verticalAlign" value="middle"/>
+		<add as="strokeColor" value="#6482b9"/><!-- (100, 130, 185) -->	
+		<add as="dashed" value="true"/>
+	</add>	
+	
+	<add as="image">
+		<add as="shape" value="image"/>
+		<add as="labelBackgroundColor" value="white"/>
+		<add as="verticalLabelPosition" value="bottom"/>
+		<add as="verticalAlign" value="top"/>
+	</add>
+	<add as="roundImage" extend="image">
+		<add as="perimeter" value="ellipsePerimeter"/>
+	</add>
+	<add as="rhombusImage" extend="image">
+		<add as="perimeter" value="rhombusPerimeter"/>
+	</add>
+</mxStylesheet>

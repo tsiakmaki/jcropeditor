@@ -1,0 +1,631 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Graph "http://www.cs.teilar.gr/ontologies/Graph.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/Graph.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Graph="http://www.cs.teilar.gr/ontologies/Graph.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/Graph.owl">
+        <dc:date rdf:datatype="&xsd;date">January 11, 2011</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">This is an elementary base ontology for graphs, to be used as an import in subsequent work on ontological specifications of CROP Learning Objects and Learning Domains.
+In the context of the intended use, the trivial single-node, no-edge graph is of significance and we are then forced to separate this notion here.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#fromNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;fromNode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&Graph;Edge"/>
+        <owl:inverseOf rdf:resource="&Graph;isStartOf"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;TopGroup"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;TopNode"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasEdge -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasEdge">
+        <rdfs:range rdf:resource="&Graph;Edge"/>
+        <owl:inverseOf rdf:resource="&Graph;isEdgeOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Group"/>
+                    <rdf:Description rdf:about="&Graph;NonUnitGraph"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasLeafNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasLeafNode">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;LeafGroup"/>
+                    <rdf:Description rdf:about="&Graph;LeafNode"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Graph"/>
+                    <rdf:Description rdf:about="&Graph;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasNode">
+        <owl:inverseOf rdf:resource="&Graph;isNodeOf"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Group"/>
+                    <rdf:Description rdf:about="&Graph;Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Graph"/>
+                    <rdf:Description rdf:about="&Graph;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasSubGraph -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasSubGraph"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#hasTopNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;hasTopNode">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;TopGroup"/>
+                    <rdf:Description rdf:about="&Graph;TopNode"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Graph"/>
+                    <rdf:Description rdf:about="&Graph;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isEdgeOf -->
+
+    <owl:ObjectProperty rdf:about="&Graph;isEdgeOf"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isEndOf -->
+
+    <owl:ObjectProperty rdf:about="&Graph;isEndOf">
+        <rdfs:range rdf:resource="&Graph;Edge"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;LeafGroup"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;LeafNode"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isNodeOf -->
+
+    <owl:ObjectProperty rdf:about="&Graph;isNodeOf"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isStartOf -->
+
+    <owl:ObjectProperty rdf:about="&Graph;isStartOf">
+        <rdfs:range rdf:resource="&Graph;Edge"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;TopGroup"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;TopNode"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#isSubGraphOf -->
+
+    <owl:ObjectProperty rdf:about="&Graph;isSubGraphOf">
+        <owl:inverseOf rdf:resource="&Graph;hasSubGraph"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#toNode -->
+
+    <owl:ObjectProperty rdf:about="&Graph;toNode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&Graph;Edge"/>
+        <owl:inverseOf rdf:resource="&Graph;isEndOf"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;LeafGroup"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&Graph;LeafNode"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Edge -->
+
+    <owl:Class rdf:about="&Graph;Edge">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;toNode"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;fromNode"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Graph -->
+
+    <owl:Class rdf:about="&Graph;Graph">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;NonUnitGraph"/>
+                    <rdf:Description rdf:about="&Graph;UnitGraph"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasNode"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasTopNode"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;TopGroup"/>
+                            <rdf:Description rdf:about="&Graph;TopNode"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasLeafNode"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;LeafGroup"/>
+                            <rdf:Description rdf:about="&Graph;LeafNode"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The Graph concept classifies directed graphs. The intent is to classify &quot;structured graphs&quot;, i.e. graphs with associated entities of some kind or other to their nodes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Group -->
+
+    <owl:Class rdf:about="&Graph;Group">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Graph;isEndOf"/>
+                        <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Graph;isStartOf"/>
+                        <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasNode"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;Group"/>
+                            <rdf:Description rdf:about="&Graph;Node"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>a group does not nesseceraly have one TopNode</rdfs:comment>
+        <rdfs:comment>a group of nodes or (recursively) groups where nodes are in parallel or sequence mode</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#LeafGroup -->
+
+    <owl:Class rdf:about="&Graph;LeafGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Group"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Graph;isEndOf"/>
+                                <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Graph;Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#LeafNode -->
+
+    <owl:Class rdf:about="&Graph;LeafNode">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Node"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Graph;isEndOf"/>
+                                <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Graph;Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#Node -->
+
+    <owl:Class rdf:about="&Graph;Node">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Graph;isEndOf"/>
+                        <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Graph;isStartOf"/>
+                        <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A structured graph node is a usual graph node, except that it has  entities of some kind or other associated to it.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#NonUnitGraph -->
+
+    <owl:Class rdf:about="&Graph;NonUnitGraph">
+        <rdfs:subClassOf rdf:resource="&Graph;Graph"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasEdge"/>
+                <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&Graph;UnitGraph"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#TopGroup -->
+
+    <owl:Class rdf:about="&Graph;TopGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Group"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Graph;isStartOf"/>
+                                <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Graph;Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#TopNode -->
+
+    <owl:Class rdf:about="&Graph;TopNode">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Graph;Node"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Graph;isStartOf"/>
+                                <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Graph;Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/Graph.owl#UnitGraph -->
+
+    <owl:Class rdf:about="&Graph;UnitGraph">
+        <rdfs:subClassOf rdf:resource="&Graph;Graph"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Graph;hasNode"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Graph;TopGroup"/>
+                            <rdf:Description rdf:about="&Graph;TopNode"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Graph;hasEdge"/>
+                        <owl:someValuesFrom rdf:resource="&Graph;Edge"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Single-Node, discrete graph.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&Graph;Edge"/>
+            <rdf:Description rdf:about="&Graph;Graph"/>
+            <rdf:Description rdf:about="&Graph;Group"/>
+            <rdf:Description rdf:about="&Graph;Node"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1799) http://owlapi.sourceforge.net -->
+

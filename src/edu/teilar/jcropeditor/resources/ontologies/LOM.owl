@@ -1,0 +1,1919 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/LOM.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LOM.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl">
+        <date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">July 2007</date>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LOM datatypes:
+As of the time lom.owl was composed, there is no standard way to incorporate user-defined datatypes in an owl file. The lom datatypes are defined in xsd schema files at http://standards.ieee.org/reading/ieee/downloads/LOM/lomv1.0/xsd/</rdfs:comment>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TODO:  Incorporate lom datatypes when protege settles on a way for incorporating user defined datatypes</owl:versionInfo>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Use of lom.owl must conform to the LOM proper use specifications, as published in &quot;IMS Meta-data Best Practice Guide for IEEE 1484.12.1-2002 Standard for Learning Object Metadata&quot; http://www.imsglobal.org/metadata/mdv1p3/imsmd_bestv1p3.html</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">author: Takis Hartonas, http://www.teilar.gr/~hartonas  mailto: hartonas@teilar.gr</rdfs:comment>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lom.owl is based on IEEE LOM v. 1.0 and the UK LOM Core Element and Implementation Guidelines
+see also
+http://ltsc.ieee.org/wg12/files/LOM_1484_12_1_v1_Final_Draft.pdf
+and
+http://zope.cetis.ac.uk/profiles/uklomcore</owl:versionInfo>
+        <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lom.owl is expected to be of use in the ontological engineering of Learning Objects and Learning Services, by incorporating the metadata about the learning objects into the reasoning about learning objects and services</purpose>
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lom.owl provides an owl binding for the IEEE Learning Object Metadata standard</description>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">version 1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#role">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kind of contribution.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NOTE 2:--&quot;terminator&quot;
+is the entity that made
+the learning object
+unavailable.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#intendedEndUserRole">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Principal user(s) for which this learning object was designed, most dominant first.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#title">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#interactivityLevel">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The degree of interactivity characterising this learning object. Interactivity in this context refers to the degree to which the learner can influence the aspect or behaviour of the learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#entry">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#genid127"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#name">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Name of the required technology to use this learning object.
+NOTE 1:--The value for this data element may be derived from 4.1:Technical.Format automatically, e.g., &quot;video/mpeg&quot; implies &quot;multi-os&quot;.
+NOTE 2:--This vocabulary includes most values in common use at the time that this Standard was approved.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#minimumVersion">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lowest possible version of the required technology to use this learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#difficulty">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This data element defines how hard it is to work through this learning object for the typical target audience.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#source">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The name of the classification system. 
+This data element may use any recognized &quot;official&quot; taxonomy or any user-defined taxonomy.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#size">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The size of the digital learning object in bytes (octets). The size is represented as a decimal value (radix 10). Consequently, only the digits &quot;0&quot; through &quot;9&quot; should be used. The unit is bytes, not Mbytes, GB, etc. This data element shall refer to the actual size of this learning object. If the learning object is compressed, then this data element shall refer to the uncompressed size.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#kind">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nature of the relationship between this learning object and the target learning object, identified by 7.2:Relation.Resource.
+Note: Based on Dublin Core:</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#learningResourceType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specific kind of learning object.  The most dominant kind shall be first.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#isPartOfValuePartition"/>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#otherPlatformRequirements">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Information about other software and hardware requirements.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#duration">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time a continuous learning object takes when played at intended speed.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#entity">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The identification of and information about  people or organizations contributing to this learning object, most relevant first.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">recommended practice for values of this property
+vCard, as defined by
+IMC vCard 3.0 (RFC
+2425, RFC 2426).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#genid177"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#structure">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Underlying organizational structure of this learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#status">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The completion status if condition of this learning object</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#date">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The date of contribution or annotation</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#genid180"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#cost">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whether use of this learning object requires payment.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#coverage">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Refer also to Dublin Core Coverage element
+http://www.dublincore.org/documents/dces/</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The time, culture, geography or region to which this learning object applies.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#typicalLearningTime">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Approximate or typical time it takes to work with or through this learning object for the typical intended target audience.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#semanticDensity">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The degree of conciseness of a learning object. The semantic density of a learning object may be estimated in terms of its size, span or – in the case of self-timed resources such as audio or video – duration.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#aggregationLevel">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1: the smallest level
+of aggregation, e.g.,
+raw media data or
+fragments.
+2: a collection of
+level 1 learning
+objects, e.g., a lesson.
+3: a collection of
+level 2 learning
+objects, e.g., a course.
+4: the largest level of
+granularity, e.g., a set
+of courses that lead to
+a certificate.
+NOTE 1:--Level 4
+objects can contain level
+3 objects, or can
+recursively contain
+other level 4 objects.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The functional granularity of this learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#copyrightAndOtherRestrictions">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whether copyright or other restrictions apply to the use of this learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#metadataSchema">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#typicalAgeRange">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Age of the typical intended user.  This element shall refer to the developmental age, if that would be different from the chronological age.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#keyword">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#genid246"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#maximumVersion">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Highest version of the technology known to support the use of this learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#purpose">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The purpose of classifying this learning object.
+Classification may be used for multiple puposes. The UK LOM Core recommends the following usage at present.
+
+Discipline -  formal subject classification or idenification in use by the institution or sector. E.g. National Curriculum 5-14 http://www.nc.uk.net/home.html,  learndirect Subject Classification (Levels 1-2) http://www.learndirect-advice.co.uk/provider/standardsandclassifications/classpage/,  Joint Academic Coding System http://www.hesa.ac.uk/jacs/completeclassification.htm,  Dewey Decimal Classification (Summary Levels 1-2) http://www.oclc.org/dewey/about/ddc_21_summaries.htm.
+
+Idea - relates to the concept contained in the resource. It is possible to use vocabularies already used for Discipline but to a deeper level e.g. LDSC, DDC. Other excamples include subject specific vocabularies e.g. MESH http://www.nlm.nih.gov/mesh/meshhome.html 
+
+Accessibility Restrictions - no suitable vocabulary exists at present. 
+
+Educational Level - the cognitive/grade level for which the resource is intended. It is recommended that the UK Educational Levels vocabulary should be used. http://www.ukoln.ac.uk/metadata/education/ukel/ The UKEL terms correspond directly to the Scottish Credit and Qualifications Framework http://www.ngflscotland.gov.uk/nq/cqframework.asp 
+Appendix 2 provides a draft mapping between UKEL, the SCQF and other UK qualification frameworks.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#context">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The principal environment within which the learning and use of this learning object is intended to take place.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#type">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The technology required to use this learning object. E.g. hardware, software, network, etc</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#interactivityType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Predominant mode of learning supported by this learning object</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#format">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CharacterString.   MIME types based on IANA registration (see RFC2048:1996) or &#39;non-digital&#39;
+&quot;video/mpeg&quot;, &quot;application/x-toolbook&quot;, &quot;text/html&quot;</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Technical datatype(s) of (all the components of) this learning object.
+
+This data element shall be used to identify the software needed to access the learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#language">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The primary human language or languages used within this learning object to communicate to the intended user.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">recommended practice: use standard namespace (see ISO 639:1988 and ISO 3166-1:1997)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#genid206"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#catalog">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The name or designator of the identification or cataloguing scheme for this entry.  A namespace scheme.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">value space: Repetoire of ISO/IEC 10646-1:2000
+(e.g. ISDN, URI etc)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#version">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The edition of this learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#location">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A string that is used to access this learning object. It may be a location (e.g., Universal Resource Locator), or a method that resolves to a location (e.g., Universal Resource Identifier). The first element of this list shall be the preferable location.
+e.g. &quot;http://host/id&quot;</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#installationRemarks">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Description of how to install this learning object.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#description"/>
+    <owl:AnnotationProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#id">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The identifier of the taxon, such as a number or letter combination provided by the source of the taxonomy.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement">
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <isPartOfValuePartition rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LOM"/>
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent">
+        <isPartOfValuePartition rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#isElementOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementOf">
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:range rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LOM"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#aggregationLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#aggregationLevel">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1: the smallest level
+of aggregation, e.g.,
+raw media data or
+fragments.
+2: a collection of
+level 1 learning
+objects, e.g., a lesson.
+3: a collection of
+level 2 learning
+objects, e.g., a course.
+4: the largest level of
+granularity, e.g., a set
+of courses that lead to
+a certificate.
+NOTE 1:--Level 4
+objects can contain level
+3 objects, or can
+recursively contain
+other level 4 objects.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The functional granularity of this learning object.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#catalog -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#catalog">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The name or designator of the identification or cataloguing scheme for this entry.  A namespace scheme.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">value space: Repetoire of ISO/IEC 10646-1:2000
+(e.g. ISDN, URI etc)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#context -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#context">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The principal environment within which the learning and use of this learning object is intended to take place.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">higher education</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">other</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">school</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">training</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#copyrightAndOtherRestrictions -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#copyrightAndOtherRestrictions">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whether copyright or other restrictions apply to the use of this learning object.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">no</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yes</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#cost -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#cost">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whether use of this learning object requires payment.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">no</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yes</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#coverage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#coverage">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Refer also to Dublin Core Coverage element
+http://www.dublincore.org/documents/dces/</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The time, culture, geography or region to which this learning object applies.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#date">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The date of contribution or annotation</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#description"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#difficulty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#difficulty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This data element defines how hard it is to work through this learning object for the typical target audience.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">easy</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very difficult</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very easy</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#duration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#duration">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time a continuous learning object takes when played at intended speed.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#entity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#entity">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The identification of and information about  people or organizations contributing to this learning object, most relevant first.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">recommended practice for values of this property
+vCard, as defined by
+IMC vCard 3.0 (RFC
+2425, RFC 2426).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#entry -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#entry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#format -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#format">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CharacterString.   MIME types based on IANA registration (see RFC2048:1996) or &#39;non-digital&#39;
+&quot;video/mpeg&quot;, &quot;application/x-toolbook&quot;, &quot;text/html&quot;</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Technical datatype(s) of (all the components of) this learning object.
+
+This data element shall be used to identify the software needed to access the learning object.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#id">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The identifier of the taxon, such as a number or letter combination provided by the source of the taxonomy.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#installationRemarks -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#installationRemarks">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Description of how to install this learning object.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#intendedEndUserRole -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#intendedEndUserRole">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Principal user(s) for which this learning object was designed, most dominant first.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">author</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">learner</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">manager</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">teacher</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#interactivityLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#interactivityLevel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The degree of interactivity characterising this learning object. Interactivity in this context refers to the degree to which the learner can influence the aspect or behaviour of the learning object.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#interactivityType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#interactivityType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Predominant mode of learning supported by this learning object</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mixed</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#keyword -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#keyword"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#kind -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#kind">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nature of the relationship between this learning object and the target learning object, identified by 7.2:Relation.Resource.
+Note: Based on Dublin Core:</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasformat</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">haspart</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasversion</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isbasedon</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isbasisfor</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isformatof</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ispartof</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isreferencedby</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isrequiredby</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isversionof</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">references</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requires</rdf:first>
+                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#language -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#language">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The primary human language or languages used within this learning object to communicate to the intended user.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">recommended practice: use standard namespace (see ISO 639:1988 and ISO 3166-1:1997)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#learningResourceType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#learningResourceType">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specific kind of learning object.  The most dominant kind shall be first.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">diagram</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">exam</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">exercise</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">experiment</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">figure</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">graph</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">index</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lecture</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">problem statement</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">questionnaire</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">self assessment</rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">simulation</rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">slide</rdf:first>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">table</rdf:first>
+                                                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#location -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#location">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A string that is used to access this learning object. It may be a location (e.g., Universal Resource Locator), or a method that resolves to a location (e.g., Universal Resource Identifier). The first element of this list shall be the preferable location.
+e.g. &quot;http://host/id&quot;</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#maximumVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#maximumVersion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Highest version of the technology known to support the use of this learning object.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#metadataSchema -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#metadataSchema"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#minimumVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#minimumVersion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lowest possible version of the required technology to use this learning object.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#name">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Name of the required technology to use this learning object.
+NOTE 1:--The value for this data element may be derived from 4.1:Technical.Format automatically, e.g., &quot;video/mpeg&quot; implies &quot;multi-os&quot;.
+NOTE 2:--This vocabulary includes most values in common use at the time that this Standard was approved.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#otherPlatformRequirements -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#otherPlatformRequirements">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Information about other software and hardware requirements.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#purpose -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#purpose">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The purpose of classifying this learning object.
+Classification may be used for multiple puposes. The UK LOM Core recommends the following usage at present.
+
+Discipline -  formal subject classification or idenification in use by the institution or sector. E.g. National Curriculum 5-14 http://www.nc.uk.net/home.html,  learndirect Subject Classification (Levels 1-2) http://www.learndirect-advice.co.uk/provider/standardsandclassifications/classpage/,  Joint Academic Coding System http://www.hesa.ac.uk/jacs/completeclassification.htm,  Dewey Decimal Classification (Summary Levels 1-2) http://www.oclc.org/dewey/about/ddc_21_summaries.htm.
+
+Idea - relates to the concept contained in the resource. It is possible to use vocabularies already used for Discipline but to a deeper level e.g. LDSC, DDC. Other excamples include subject specific vocabularies e.g. MESH http://www.nlm.nih.gov/mesh/meshhome.html 
+
+Accessibility Restrictions - no suitable vocabulary exists at present. 
+
+Educational Level - the cognitive/grade level for which the resource is intended. It is recommended that the UK Educational Levels vocabulary should be used. http://www.ukoln.ac.uk/metadata/education/ukel/ The UKEL terms correspond directly to the Scottish Credit and Qualifications Framework http://www.ngflscotland.gov.uk/nq/cqframework.asp 
+Appendix 2 provides a draft mapping between UKEL, the SCQF and other UK qualification frameworks.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accessibility restrictions</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">competency</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">discipline</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational character</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">idea</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">prerequisite</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">security level</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">skill level</rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#role -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#role">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kind of contribution.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NOTE 2:--&quot;terminator&quot;
+is the entity that made
+the learning object
+unavailable.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">author</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">content provider</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">editor</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational validator</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">graphical designer</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">initiator</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inknown</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">instructional designer</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">publisher</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">script writer</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">subject matter expert</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">technical implementer</rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">technical validator</rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">terminator</rdf:first>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">validator</rdf:first>
+                                                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#semanticDensity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#semanticDensity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The degree of conciseness of a learning object. The semantic density of a learning object may be estimated in terms of its size, span or – in the case of self-timed resources such as audio or video – duration.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#size -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#size">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The size of the digital learning object in bytes (octets). The size is represented as a decimal value (radix 10). Consequently, only the digits &quot;0&quot; through &quot;9&quot; should be used. The unit is bytes, not Mbytes, GB, etc. This data element shall refer to the actual size of this learning object. If the learning object is compressed, then this data element shall refer to the uncompressed size.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#source -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#source">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The name of the classification system. 
+This data element may use any recognized &quot;official&quot; taxonomy or any user-defined taxonomy.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#status -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#status">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The completion status if condition of this learning object</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">draft</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">final</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">revised</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unavailable</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#structure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#structure">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Underlying organizational structure of this learning object.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">atomic</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">collection</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hierarchical</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">networked</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#title">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#type">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The technology required to use this learning object. E.g. hardware, software, network, etc</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#typicalAgeRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#typicalAgeRange">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Age of the typical intended user.  This element shall refer to the developmental age, if that would be different from the chronological age.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#typicalLearningTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#typicalLearningTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Approximate or typical time it takes to work with or through this learning object for the typical intended target audience.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#version -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#version">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The edition of this learning object.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Annotation -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Annotation">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category provides comments on the educational use of this learning object, and information on when and by whom the comments were created. This category enables educators to share their assessments of learning objects, suggestions for use, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Classification -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category describes where this learning object falls within a particular classification system.
+To define multiple classifications, there may be multiple instances of this category.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Those entities (i.e., people, organizations) that have contributed to the state of this learning object during its life cycle (e.g., creation, edits, publication).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Educational -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category describes the key educational or pedagogic characteristics of this learning object. 
+This is the pedagogical information essential to those involved in achieving a quality learning experience.  The audience for this metadata includes teachers, managers, authors and learners.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Element -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Element">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Annotation"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LOM"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon"/>
+                    <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LOM"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#General -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#General">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category groups the general information that describes this learning object as a whole.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#LOM -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#LOM">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Annotation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Educational"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#General"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElement"/>
+                        <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#LifeCycle">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category describes the history and current state of this learning object and those who have affected this learning object during its evolution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#MetaMetaData">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Contribute"/>
+                            <rdf:Description rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Identifier"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category describes this metadata record itself (rather than the learning object that this record describes).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grouping of multiple requirements. The composite requirement is satisfied when one of the component requirements is satisfied, i.e., the logical connector is OR.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Relation -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category defines the relationship between this learning object and other learning objects, if any.
+To define multiple relationships, there may be multiple instances of this category. If there is more than one target learning object, then each target shall have a new relationship instance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#OrComposite"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The technical capabilities necessary for using this learning object. If there are multiple requirements, then all are required, i.e., the logical connector is AND.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Resource -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Resource">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Relation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The target learning object that this relationship references.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Rights -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Rights">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Taxon">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A particular term within a taxonomy.  A taxon is a node that has a defined label or term.  A taxon may also have an alphanumeric designation or identifier for standardized reference.  Either or both the label and the entry may be used to designate a particular taxon.
+An ordered list of taxons creates a taxonomic path, i.e., &quot;taxonomic stairway&quot;: this is a path from a more general to more specific entry in a classification.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#TaxonPath">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#ElementComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#isElementComponentOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Classification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A taxonomic path in a specific classification system. Each succeeding level is a refinement in the definition of the preceding level. 
+There may be different paths, in the same or different classifications, which describe the same characteristic.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LOM.owl#Technical -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LOM.owl#Technical">
+        <rdfs:subClassOf rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:allValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#hasElementComponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.teilar.gr/ontologies/LOM.owl#Requirement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This category describes the technical requirements and characteristics of this learning object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Property -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.4.1806) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project jcropeditor">
+	<!--this file was created by Eclipse Runnable JAR Export Wizard -->
+	<!--ANT 1.7 is required -->
+
+
+	<target name="create_run_jar">
+		<jar destfile="/home/maria/phd/java/jcropeditor/bin/jcropeditor.jar"
+			filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="edu.teilar.jcropeditor.Application" />
+				<attribute name="Class-Path"
+					value=". ./libs/jgraphx.jar ./libs/owlapi-bin.jar ./libs/log4j-1.2.16.jar ./libs/docking-frames-common.jar ./libs/docking-frames-core.jar ./libs/HermiT.jar ./libs/shef/jtidy-8.0.jar ./libs/shef/novaworx-syntax-0.0.7.jar ./libs/shef/sam.jar ./libs/shef/SHEF.jar ./libs/vlcj/jna.jar ./libs/vlcj/platform.jar ./libs/vlcj/vlcj-1.2.2.jar ./libs/pdf/PDFRenderer-0.9.0.jar" />
+			</manifest>
+			<fileset dir="/home/maria/git/java/jcropeditor/bin" />
+			<!-- fileset dir="/home/maria/git/java/jgraphx-1_5_1_8/bin" /-->
+			<!-- <zipfileset excludes="META-INF/*.SF" src="C:/src/java/jcropeditor/libs/owlapi-bin.jar"/> 
+				<zipfileset excludes="META-INF/*.SF" src="C:/src/java/jgraphx/lib/jgraphx.jar"/> -->
+		</jar>
+		
+		<copydir dest="/home/maria/phd/java/jcropeditor/bin/libs/"
+			src="/home/maria/git/java/jcropeditor/libs"></copydir>
+		<copydir dest="/home/maria/phd/java/jcropeditor/resources/"
+			src="/home/maria/git/java/jcropeditor/resources"></copydir>
+	</target>
+</project>

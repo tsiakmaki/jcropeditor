@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY kconcept "http://www.cs.teilar.gr/ontologies/KConcept.owl#" >
+    <!ENTITY conceptgraph "http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#" >
+    <!ENTITY lom "http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cs.teilar.gr/ontologies/LearningObject.owl#"
+     xml:base="http://www.cs.teilar.gr/ontologies/LearningObject.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:lom="http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:conceptgraph="http://www.cs.teilar.gr/ontologies/ConceptGraph.owl#"
+     xmlns:kconcept="http://www.cs.teilar.gr/ontologies/KConcept.owl#">
+    <owl:Ontology rdf:about="http://www.cs.teilar.gr/ontologies/LearningObject.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">A CROP Learning Object (a Learning Object in the CROP Reference Architecture) is a subspecies of a Learning Object. Non-CROP Learning Objects may be incorporated in the construction of CROP Objects, by treating then as KResources (objects with no internal structure). 
+The current ontology specifies the minimum requirements for an entity to be a Learning Object. </rdfs:comment>
+        <dc:date rdf:datatype="&xsd;date">January 11, 2011</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Takis Hartonas</dc:creator>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/KConcept.owl"/>
+        <owl:imports rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#isTargetOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearningObject.owl#isTargetOf"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#targets -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.teilar.gr/ontologies/LearningObject.owl#targets">
+        <rdfs:range rdf:resource="&kconcept;EducationalObjective"/>
+        <rdfs:domain rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject"/>
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl#isTargetOf"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#describes -->
+
+    <owl:ObjectProperty rdf:about="&lom;describes">
+        <owl:inverseOf rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#location -->
+
+    <owl:DatatypeProperty rdf:about="&lom;location"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#Concept -->
+
+    <owl:Class rdf:about="&kconcept;Concept"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/KConcept.owl#EducationalObjective -->
+
+    <owl:Class rdf:about="&kconcept;EducationalObjective"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject -->
+
+    <owl:Class rdf:about="http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl#describedBy"/>
+                <owl:onClass rdf:resource="&lom;LOM"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl#targets"/>
+                <owl:onClass rdf:resource="&kconcept;EducationalObjective"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A CROP Learning Object (a Learning Object in the CROP Reference Architecture) is a subspecies of a Learning Object. Non-CROP Learning Objects may be incorporated in the construction of CROP Objects, by treating then as KResources (objects with no internal structure). 
+The current ontology specifies the minimum requirements for an entity to be a Learning Object. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOM -->
+
+    <owl:Class rdf:about="&lom;LOM">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&lom;describes"/>
+                <owl:onClass rdf:resource="http://www.cs.teilar.gr/ontologies/LearningObject.owl#LearningObject"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElement -->
+
+    <owl:Class rdf:about="&lom;LOMElement"/>
+    
+
+
+    <!-- http://www.cs.teilar.gr/ontologies/LearningObjectMetaData.owl#LOMElementComponent -->
+
+    <owl:Class rdf:about="&lom;LOMElementComponent"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
