@@ -7,7 +7,26 @@ Related work
 
 @article{hartonas2008adaptivity, title={Adaptivity for knowledge content in the semantic web}, author={Hartonas, Chrysafis and Gana, Eleni}, journal={Proceedings of KGCM}, year={2008} }
 
-@article{tsiakmaki2011, title={Προσαρμοστικότητα ως Αναδυόμενη Ιδιότητα Σύνθεσης Υπηρεσιών Μάθησης στο Σημασιολογικό Ιστό}, author={Τσιακμάκη, Μαρία and Γκανα, Ελένη and Χαρτώνας, Χρυσαφης}, year={2011} }
+@inproceedings{TsiakmakiH11,
+  author    = {Τσιακμάκη, Μαρία and Γκανα, Ελένη and Χαρτώνας, Χρυσαφης},
+  title     = {Προσαρμοστικότητα ως Αναδυόμενη Ιδιότητα Σύνθεσης Υπηρεσιών Μάθησης στο Σημασιολογικό Ιστό},
+  booktitle = {2ο Πανελλήνιο Συνέδριο στην Ένταξη και χρήση των ΤΠΕ στην Εκπαιδευτική διαδικασία},
+  year      = {2011},
+  pages     = {889-898},
+  ee        = {www.etpe.eu/new/custom/pdf/etpe1764.pdf}
+}
+
+@inproceedings{DBLP:conf/bci/TsiakmakiH13,
+  author    = {Maria Tsiakmaki and Chrysafis Hartonas},
+  title     = {Implementing the CROP Reference Architecture: The CROP Learning Object Editor},
+  booktitle = {BCI (Local)},
+  year      = {2013},
+  pages     = {72},
+  ee        = {http://ceur-ws.org/Vol-1036/p72-Tsiakmaki.pdf},
+  crossref  = {DBLP:conf/bci/2013l},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
 
 ========================
 Running the jcrop editor
